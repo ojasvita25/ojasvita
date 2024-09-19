@@ -1,9 +1,14 @@
 ![butterfly](/chou.png)
 
-# Hello, I'm Ojasvita Walgad!
+# Hello, I'm Ojasvita!
 
-Find my website portfolio of design work here (https://ojasvita25.github.io/ojasvita.github.io/)
+## 🤔 I’m currently...
 
+## 🗝️ I was part of...
 
+## 📚 I’m learning...
 
+## 📫 How to reach me...
+- On email 
+- My website
 
