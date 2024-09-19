@@ -1,11 +1,9 @@
-# AI Engineer 
+![butterfly](/chou.png)
 
-### Education
-Electrical Engg, Dual Degree
+# Hello, I'm Ojasvita Walgad!
 
-### Work Experience
-Deep Learning Engineer @RadiusAI
-- project 1
-- project 2
+Find my website portfolio of design work here (https://ojasvita25.github.io/ojasvita.github.io/)
+
+
 
 
