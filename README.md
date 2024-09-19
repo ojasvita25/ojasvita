@@ -1,4 +1,4 @@
-<img src="/chou.jpg" width="100" height="100">
+<img src="/chou.jpg" width="400" height="200">
 
 # Hello, I'm Ojasvita!
 
