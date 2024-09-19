@@ -1,4 +1,4 @@
-![butterfly](/chou.jpg)
+![butterfly](/chou.jpg =250x250)
 
 # Hello, I'm Ojasvita!
 
