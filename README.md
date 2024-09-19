@@ -1,4 +1,4 @@
-![butterfly](/chou.jpg =250x250)
+<img src="/chou.jpg" width="100" height="100">
 
 # Hello, I'm Ojasvita!
 
