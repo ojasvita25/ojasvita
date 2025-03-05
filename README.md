@@ -17,5 +17,5 @@ I am an AI Engineer with 5+ years of experience working with visual data. I have
 2. AI art storytelling
 
 ## 📫 How to reach me...
-- mail2ojasv@gmail.com ✉️
+- mail2ojasv@gmail.com
 
