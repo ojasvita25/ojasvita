@@ -1,6 +1,8 @@
 
 
-# Hello, I'm Ojasvita! I am an AI Engineer with 5+ years of experience working with visual data. I have worked with computer vision startup building real-time video analytics solution and Gen AI startup catering to creative industries. I enjoy solving with and for Machine Learning, taking end-to-end considerations into account throughout the AI development lifecycle.
+# Hello, I'm Ojasvita! 
+
+I am an AI Engineer with 5+ years of experience working with visual data. I have worked with computer vision startup building real-time video analytics solution and Gen AI startup catering to creative industries. I enjoy solving with and for Machine Learning, taking end-to-end considerations into account throughout the AI development lifecycle.
 
 ## 🤔 I’m currently...
 1. Exploring FER models and building an interactive interface to explore and experience various basic human emotions.
