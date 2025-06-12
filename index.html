@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+    <main>
+        <aside class="sidebar " data-sidebar>
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="portfolio_images/picture.png" alt="avatar" width="80">
+                </figure>
+
+                <div class="info-content">
+                    <h1 class="name" title="Ojasvita Walgad">Ojasvita Walgad</h1>
+                    <p class="title">📟  ML Engineer <br>🎨 AI Artist <br> 💃 Dancer</p>
+                </div>
+
+                <button class="info-more-btn" data-sidebar-btn>
+                    <span>Show Contacts</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
+
+            <div class="sidebar-info-more">
+                <div class="separator"></div>
+
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
+
+                            <a href="mailto:mail2ojasv@gmail.com" class="contact-link">mail2ojasv@gmail.com</a>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="location-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Location</p>
+
+                            <address>Bangalore, India</address>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="separator"></div>
+
+                <!-- <ul class="social-list"> -->
+                    <!-- <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                    <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li> -->
+                    <!-- <li class="social-item"><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li> -->
+                <!-- </ul> -->
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Portfolio</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Blog</button></li>
+                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
+                </ul>
+            </nav>
+
+            <article class="about active" data-page="about">
+                <header>
+                    <h2 class="h2 article-title">About me</h2>
+                </header>
+
+                <section class="about-text">
+                    <p>With 5 years of professional experience as a Machine Learning Engineer, I specialize in building and deploying advanced AI solutions across domains like Computer Vision, Natural Language Processing, and Deep Learning. I’ve worked with startups developing real-time video analytics for retail, and more recently with a Generative AI company focused on creative industries. </p>
+                    <p>My practice bridges technical rigor with artistic exploration—most recently through JengAI, a speculative AI short film that was selected for the Dhruma Film Festival. I enjoy designing end-to-end ML systems, crafting generative tools, and creating expressive, interdisciplinary work that reimagines how we engage with technology.</p>
+                    <p>I'm always open to creative collaborations, research opportunities, and projects at the intersection of AI, design, and storytelling.</p>
+
+                </section>
+                <div class="image-row">
+                    <img src="images/img2.webp" alt="Image 1">
+                    <img src="images/img1.png" alt="Image 2">
+                    <img src="images/img3.png" alt="Image 3">
+                    <img src="images/texture.webp" alt="Image 4">
+                    <img src="images/yellow_hibiscus.png" alt="Image 5">
+                  </div>
+
+                <div class="modal-container " data-modal-container>
+                    <div class="overlay " data-overlay></div>
+
+                    <section class="testimonials-modal">
+                        <button class="modal-close-btn" data-modal-close-btn><ion-icon name="close-outline"></ion-icon></button>
+                        
+                    </section>
+                </div>
+
+            </article>
+            
+            <article class="resume " data-page="resume">
+                <header>
+                    <h2 class="h2 article-title">Resume</h2>
+                </header>
+
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+
+                        <h3 class="h3">Education</h3>
+                    </div>
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Strings 'N' Steps Academy of Performing Arts</h4>
+                            <span>2020 - present</span>
+                            <p class="timeline-text">Certified Kathak dancer with formal training under the Prayag Sangeet Samiti curriculum. Currently pursuing Senior Diploma (equivalent to a bachelor’s level) in Kathak. Actively training to be a stage performer and have participated in multiple group and solo performances as part of academy showcases and cultural events.</p>
+                        </li>
+                    </ol>
+                    <br>
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Indian Institute of Technology, Madras</h4>
+                            <span>2014 - 2019</span>
+                            <p class="timeline-text">There I pursued BTech in Electrical Engineering and MTech in Applied Mechanics under Dual degree programme. And, completed my final project in attention-based deep reinforcement learning for simulating human search behavior in road video object localization under Professor Srinivasa Chakravarthy — a collaborative research project with Continental Automotive.</p>
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+
+                        <h3 class="h3">Experience</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">AI Futures Fellow, Gooey.AI & Jaaga Trust</h4>
+                            <span>Feb 2024 - May 2024</span>
+                            <p class="timeline-text">I created JengAI, a short film on an AI-powered smart city using generative AI tools to explore inclusive, participatory futures through speculative storytelling. This work was also selected to be screened at Dhruma film Festival, Darjeeling.</p>
+                            <span class="cvtag">Prompt Engineering</span> 
+                            <span class="cvtag">Generative AI</span>
+                            <span class="cvtag">Futures Thinking</span>
+                            <span class="cvtag">Narrative Design</span>
+                            <span class="cvtag">Filmmaking</span>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Gen AI Engineer, HedwigAI</h4>
+                            <span>Dec 2023 - April 2024</span>
+                            <p class="timeline-text">I built multiple proof-of-concept projects leveraging generative AI models for diverse business applications, including a storytelling app using SDXL and LoRA, document OCR solutions for fintech/edtech, etc.</p>
+                            <span class="cvtag">Huggingface</span> 
+                            <span class="cvtag">LoRA Training</span>
+                            <span class="cvtag">PyTorch</span> 
+                            <span class="cvtag">PEFT</span>
+                            <span class="cvtag">Transformers</span>
+                            <span class="cvtag">LLMs</span>
+                            <span class="cvtag">RAG</span>
+                            <span class="cvtag">Knowledge Base</span>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Sr. Deep Learning Engineer, RadiusAI</h4>
+                            <span>Feb 2020 - Oct 2023</span>
+                            <p class="timeline-text">I contributed to the development and deployment of real-time video analytics solutions for retail environments, implemented across 700 convenience stores in the US.</p>
+                            <span class="cvtag">Object Tracking</span> 
+                            <span class="cvtag">Computer Vision</span>
+                            <span class="cvtag">Edge Deployment</span>
+                            <span class="cvtag">Point Clouds</span>
+                            <span class="cvtag">Behavioral Analytics</span>
+                            <span class="cvtag">Retail Tech</span>
+                        </li>
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Software Developer R&D, Reliance Jio Infocom Ltd.</h4>
+                            <span>Jul 2019 - Jan 2020</span>
+                            <p class="timeline-text">I worked on telecom 5G infrastructure, gaining hands-on experience with network protocols, performance tuning, and system-level debugging to en- hance reliability and efficiency of telecom systems.</p>
+                            <span class="cvtag">5G Infrastructure</span> 
+                            <span class="cvtag">Network Protocols</span> 
+                        </li>
+
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Software Developer Intern, Nowent Inc.</h4>
+                            <span>May 2017 - Jul 2017</span>
+                            <p class="timeline-text">I built a Self-Service iOS Lead Capture App which improves company’s engagement with their trade show visitors.</p>
+                            <span class="cvtag">UI/UX Design</span>
+                            <span class="cvtag">Swift</span>
+                            <span class="cvtag">iOS App Development</span>
+
+                        </li>
+
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Super-Coordinator, WebOps Team, Shaastra (IITM Tech Festival)</h4>
+                            <span>May 2016 - March 2017</span>
+                            <p class="timeline-text">I led a Frontend team of 7 to build Shaastra's website, received 10 million+ cumulative hits, over 15,000 unique visitors.</p>
+                            <span class="cvtag">Frontend Development</span>
+                            <span class="cvtag">MEAN Stack</span>
+                            <span class="cvtag">Parallax Scrolling</span>
+                        </li>
+                    </ol>
+                </section>
+                        
+            </article>
+
+            <article class="portfolio " data-page="portfolio">
+                <header>
+                    <h2 class="h2 article-title">Portfolio</h2>
+                </header>
+
+                <section class="projects">
+                    <ul class="filter-list">
+                        <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
+                    </ul>
+
+                    <div class="filter-select-box">
+                        <button class="filter-select " data-select>
+                            <div class="select-value" data-select-value>Select Category</div>
+
+                            <div class="select-icon">
+                                <ion-icon name="chevron-down"></ion-icon>
+                            </div>
+                        </button>
+
+                        <ul class="select-list">
+                            <li class="select-item"><button data-select-item>All</button></li>
+                            <!-- <li class="select-item"><button data-select-item>Creative AI Tech</button></li> -->
+                        </ul>
+                    </div>
+
+                    <ul class="project-list">
+                        <li class="project-item active" data-filter-item data-category="Creative AI Tech">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+                                    <img src="portfolio_images/jengai.png" alt="JengAI (AI Film)" loading="lazy">
+                                </figure>
+                                <h3 class="project-title">JengAI (AI Film)</h3>
+                                <p class="project-category">AI Futures Fellowship</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="portfolio_images/demo.gif" alt="orizon" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Nava Rasa</h3>
+                                <p class="project-category">Interactive FER Project</p>
+                            </a>
+                        </li>
+
+                        <li class="project-item active" data-filter-item data-category="web design">
+                            <a href="#">
+                                <figure class="project-img">
+                                    <div class="project-item-icon-box">
+                                        <ion-icon name="eye-outline"></ion-icon>
+                                    </div>
+
+                                    <img src="portfolio_images/oriAI.png" alt="fundo" loading="lazy">
+                                </figure>
+
+                                <h3 class="project-title">Origami x AI</h3>
+                                <p class="project-category">Mixed Media Project</p>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </article>
+
+            <article class="blog " data-page="blog">
+                <header>
+                    <h2 class="h2 article-title">Blog</h2>
+                </header>
+
+                <!-- <section class="blog-posts">
+                    <ul class="blog-posts-list">
+
+                        <li class="blog-post-item">
+                            <a href="#">
+                                <figure class="blog-banner-box">
+                                    <img src="https://i.postimg.cc/zBCBvP16/blog-6.jpg" alt="Design digest #79" loading="lazy">
+                                </figure>
+
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <p class="blog-category">Design</p>
+                                        <span class="dot"></span>
+                                        <time datetime="2023-10-20">Oct 20, 2023</time>
+                                    </div>
+
+                                    <h3 class="h3 blog-item-title">Design digest #79</h3>
+                                    <p class="blog-text">Hi, my friends. In this Design Digest I'll focus in the tools and resources that we use daily in our projects. Also, I'll include examples of software recommendations, online courses, and design communities that foster collaboration and learning.</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </section> -->
+            </article>
+
+            <article class="contact " data-page="contact">
+                <header>
+                    <h2 class="h2 article-title">Contact</h2>
+                </header>
+
+                <section class="contact-form">
+                    <h3 class="h3 form-title">Contact Form</h3>
+
+                    <form action="#" class="form" data-form>
+                        <div class="input-wrapper">
+                            <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+                            <input type="email" name="email" class="form-input" placeholder="Email Address" required data-form-input>
+                        </div>
+
+                        <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input=""></textarea>
+
+                        <button class="form-btn" type="submit" disabled data-form-btn>
+                            <ion-icon name="paper-plane"></ion-icon>
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </section>
+            </article>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
