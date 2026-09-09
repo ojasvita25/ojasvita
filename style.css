@@ -27,19 +27,21 @@
 
 html, body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    min-height: 100dvh;
     background-color: var(--bg);
     color: var(--text-primary);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Full Viewport Canvas */
 .canvas-wrapper {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -596,16 +598,18 @@ html, body {
 .intro-modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(255, 255, 255, 0.78);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 20px 16px;
     opacity: 0;
     pointer-events: none;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     transition: opacity var(--transition);
 }
 
@@ -618,9 +622,14 @@ html, body {
     background: var(--bg);
     border: 1.5px solid var(--border-line);
     border-radius: 16px;
-    padding: 36px 32px;
-    max-width: 620px;
+    padding: 32px 28px;
+    max-width: 600px;
     width: 100%;
+    margin: auto;
+    max-height: calc(100vh - 40px);
+    max-height: calc(100dvh - 40px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
     position: relative;
     transform: translateY(16px) scale(0.98);
@@ -635,8 +644,8 @@ html, body {
     position: absolute;
     top: 18px;
     right: 18px;
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     border: 1px solid var(--border-line);
     background: var(--bg);
@@ -644,9 +653,9 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
-    line-height: 1;
+    font-size: 1.4rem;
     cursor: pointer;
+    line-height: 1;
     transition: all var(--transition);
 }
 
@@ -659,36 +668,36 @@ html, body {
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-bottom: 22px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 24px;
 }
 
 .intro-avatar-wrap {
-    width: 68px;
-    height: 68px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     overflow: hidden;
     border: 1.5px solid var(--border-line);
     flex-shrink: 0;
+    background: #f4f4f5;
 }
 
 .intro-avatar {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .intro-name {
     font-family: var(--font-serif);
-    font-size: 1.85rem;
+    font-size: 2rem;
     font-weight: 500;
-    color: var(--text-primary);
-    line-height: 1.15;
+    line-height: 1.1;
     letter-spacing: -0.01em;
 }
 
 .intro-role-subtitle {
+    font-family: var(--font-sans);
     font-size: 0.875rem;
     color: var(--text-secondary);
     font-weight: 400;
@@ -712,7 +721,7 @@ html, body {
     font-size: 0.9375rem;
     color: var(--text-secondary);
     line-height: 1.65;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
 }
 
 .intro-body strong {
@@ -721,7 +730,7 @@ html, body {
 }
 
 .intro-footer {
-    padding-top: 20px;
+    padding-top: 18px;
     border-top: 1px solid var(--border-light);
 }
 
@@ -745,6 +754,30 @@ html, body {
     opacity: 0.65;
 }
 
+.intro-explore-btn {
+    margin-top: 18px;
+    width: 100%;
+    padding: 11px 20px;
+    background: var(--text-primary);
+    color: var(--bg);
+    border: 1px solid var(--text-primary);
+    border-radius: 9999px;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all var(--transition);
+}
+
+.intro-explore-btn:hover {
+    background: var(--bg);
+    color: var(--text-primary);
+}
+
 /* --------------------------------------------------------------------------
    RESPONSIVE ADAPTATIONS
    -------------------------------------------------------------------------- */
@@ -756,6 +789,7 @@ html, body {
     .graph-scene {
         height: 100%;
         max-height: 520px;
+        min-height: 460px;
     }
 
     .central-core {
@@ -777,37 +811,44 @@ html, body {
     }
 
     .node-top {
-        top: calc(50% - 140px);
+        top: calc(50% - 135px);
         left: 50%;
     }
 
     .node-bottom-left {
-        top: calc(50% + 135px);
-        left: calc(50% - 85px);
+        top: calc(50% + 125px);
+        left: 32%;
     }
 
     .node-bottom-right {
-        top: calc(50% + 135px);
-        left: calc(50% + 85px);
+        top: calc(50% + 125px);
+        left: 72%;
     }
 
     .role-card {
-        padding: 9px 16px;
+        padding: 9px 15px;
     }
 
     .role-title {
         font-size: 0.8125rem;
     }
 
+    .intro-modal-backdrop {
+        padding: 12px;
+        align-items: flex-start;
+    }
+
     .intro-modal-card {
-        padding: 28px 20px;
-        max-height: 88vh;
+        padding: 22px 16px;
+        max-height: calc(100dvh - 24px);
+        margin: auto 0;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
 
     .intro-modal-header {
         gap: 14px;
+        margin-bottom: 18px;
     }
 
     .intro-avatar-wrap {
@@ -825,21 +866,20 @@ html, body {
 
     .startup-nodes-wrap {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
     }
 
     .subgraph-nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+        margin-bottom: 24px;
+        gap: 10px;
     }
 
     .subgraph-view {
-        padding: 24px 16px 64px;
+        padding: 16px 14px 60px;
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
     .central-core {
         padding: 7px 18px 7px 8px;
         gap: 10px;
@@ -851,21 +891,26 @@ html, body {
     }
 
     .central-name {
-        font-size: 1.55rem;
+        font-size: 1.5rem;
+    }
+
+    .central-hint {
+        font-size: 0.625rem;
     }
 
     .node-top {
         top: calc(50% - 130px);
+        left: 50%;
     }
 
     .node-bottom-left {
-        top: calc(50% + 125px);
-        left: calc(50% - 75px);
+        top: calc(50% + 120px);
+        left: 30%;
     }
 
     .node-bottom-right {
-        top: calc(50% + 125px);
-        left: calc(50% + 75px);
+        top: calc(50% + 120px);
+        left: 74%;
     }
 
     .role-card {
@@ -874,5 +919,23 @@ html, body {
 
     .role-title {
         font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .node-bottom-left {
+        left: 28%;
+    }
+
+    .node-bottom-right {
+        left: 76%;
+    }
+
+    .role-card {
+        padding: 7px 10px;
+    }
+
+    .role-title {
+        font-size: 0.7rem;
     }
 }

@@ -222,8 +222,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const introExploreBtn = document.getElementById('introExploreBtn');
     if (introCloseBtn) {
         introCloseBtn.addEventListener('click', closeIntroModal);
+    }
+
+    if (introExploreBtn) {
+        introExploreBtn.addEventListener('click', closeIntroModal);
     }
 
     if (introModalBackdrop) {
