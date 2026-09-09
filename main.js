@@ -198,18 +198,22 @@ document.addEventListener('DOMContentLoaded', () => {
         introModalBackdrop.classList.remove('active');
         introModalBackdrop.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        
+        // Trigger reveal of the 3 leaves and connecting arrows when user clicks 'explore more' or 'X'
+        revealGraph();
         drawMainGraph();
         setTimeout(drawMainGraph, 60);
-        setTimeout(drawMainGraph, 250);
+        setTimeout(drawMainGraph, 200);
+        setTimeout(drawMainGraph, 450);
+        setTimeout(drawMainGraph, 750);
     }
 
     function revealGraph() {
         if (!scene.classList.contains('revealed')) {
             scene.classList.add('revealed');
-            // Animate line drawings in sync with node transitions
-            const intervals = [50, 150, 300, 500, 700];
-            intervals.forEach((t) => setTimeout(drawMainGraph, t));
         }
+        const intervals = [30, 80, 160, 300, 500, 750];
+        intervals.forEach((t) => setTimeout(drawMainGraph, t));
     }
 
     function handleCenterClick() {
