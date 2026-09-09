@@ -1,132 +1,251 @@
+/**
+ * Ojasvita — Tiered Interactive Role Graph
+ * Tier 1: Central nexus (Ojasvita) -> 3 Roles (MLE, Creative Tech, Dancer)
+ * Tier 2: Dedicated Sub-graphs for:
+ *   - Machine Learning Engineer (Startups & Applied Engineering)
+ *   - Creative Technologist (Installations & Interactive Systems)
+ *   - Classical Dancer (Kathak Arts & Embodied Computing)
+ */
+
 'use strict';
 
-//Opening or closing side bar
+document.addEventListener('DOMContentLoaded', () => {
+    // ----------------------------------------------------------------------
+    // Tier 1: Main Triangular Role Graph
+    // ----------------------------------------------------------------------
+    const scene = document.getElementById('graphScene');
+    const svg = document.getElementById('connectionsSvg');
+    const linesGroup = document.getElementById('linesGroup');
+    const centerNode = document.getElementById('centralNode');
 
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+    const roleNodes = [
+        { el: document.getElementById('nodeMle'), id: 'mle', pos: 'top' },
+        { el: document.getElementById('nodeTech'), id: 'tech', pos: 'bottom-left' },
+        { el: document.getElementById('nodeDancer'), id: 'dancer', pos: 'bottom-right' }
+    ];
 
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+    function drawMainGraph() {
+        if (!scene || !svg || !linesGroup || !centerNode) return;
 
-sidebarBtn.addEventListener("click", function() {elementToggleFunc(sidebar); })
+        const sceneRect = scene.getBoundingClientRect();
+        const centerRect = centerNode.getBoundingClientRect();
 
-//Activating Modal-testimonial
+        const cX = (centerRect.left + centerRect.width / 2) - sceneRect.left;
+        const cY = (centerRect.top + centerRect.height / 2) - sceneRect.top;
 
-const testimonialsItem = document.querySelectorAll('[data-testimonials-item]');
-const modalContainer = document.querySelector('[data-modal-container]');
-const modalCloseBtn = document.querySelector('[data-modal-close-btn]');
-const overlay = document.querySelector('[data-overlay]');
+        linesGroup.innerHTML = '';
 
-const modalImg = document.querySelector('[data-modal-img]');
-const modalTitle = document.querySelector('[data-modal-title]');
-const modalText = document.querySelector('[data-modal-text]');
+        roleNodes.forEach((role) => {
+            if (!role.el) return;
+            const targetRect = role.el.getBoundingClientRect();
 
-const testimonialsModalFunc = function () {
-    modalContainer.classList.toggle('active');
-    overlay.classList.toggle('active');
-}
+            const tCenterX = (targetRect.left + targetRect.width / 2) - sceneRect.left;
+            const tCenterY = (targetRect.top + targetRect.height / 2) - sceneRect.top;
 
-for (let i = 0; i < testimonialsItem.length; i++) {
-    testimonialsItem[i].addEventListener('click', function () {
-        modalImg.src = this.querySelector('[data-testimonials-avatar]').src;
-        modalImg.alt = this.querySelector('[data-testimonials-avatar]').alt;
-        modalTitle.innerHTML = this.querySelector('[data-testimonials-title]').innerHTML;
-        modalText.innerHTML = this.querySelector('[data-testimonials-text]').innerHTML;
+            const dx = tCenterX - cX;
+            const dy = tCenterY - cY;
+            const angle = Math.atan2(dy, dx);
 
-        testimonialsModalFunc();
-    })
-}
+            // Elliptical boundary intersection for central pill
+            const a = (centerRect.width / 2) + 2;
+            const b = (centerRect.height / 2) + 2;
+            const cosA = Math.cos(angle);
+            const sinA = Math.sin(angle);
+            const centerDist = (a * b) / Math.sqrt((b * cosA) ** 2 + (a * sinA) ** 2);
+            const startX = cX + cosA * centerDist;
+            const startY = cY + sinA * centerDist;
 
-//Activating close button in modal-testimonial
-
-modalCloseBtn.addEventListener('click', testimonialsModalFunc);
-overlay.addEventListener('click', testimonialsModalFunc);
-
-//Activating Filter Select and filtering options
-
-const select = document.querySelector('[data-select]');
-const selectItems = document.querySelectorAll('[data-select-item]');
-const selectValue = document.querySelector('[data-select-value]');
-const filterBtn = document.querySelectorAll('[data-filter-btn]');
-
-select.addEventListener('click', function () {elementToggleFunc(this); });
-
-for(let i = 0; i < selectItems.length; i++) {
-    selectItems[i].addEventListener('click', function() {
-
-        let selectedValue = this.innerText.toLowerCase();
-        selectValue.innerText = this.innerText;
-        elementToggleFunc(select);
-        filterFunc(selectedValue);
-
-    });
-}
-
-const filterItems = document.querySelectorAll('[data-filter-item]');
-
-const filterFunc = function (selectedValue) {
-    for(let i = 0; i < filterItems.length; i++) {
-        if(selectedValue == "all") {
-            filterItems[i].classList.add('active');
-        } else if (selectedValue == filterItems[i].dataset.category) {
-            filterItems[i].classList.add('active');
-        } else {
-            filterItems[i].classList.remove('active');
-        }
-    }
-}
-
-//Enabling filter button for larger screens 
-
-let lastClickedBtn = filterBtn[0];
-
-for (let i = 0; i < filterBtn.length; i++) {
-    
-    filterBtn[i].addEventListener('click', function() {
-
-        let selectedValue = this.innerText.toLowerCase();
-        selectValue.innerText = this.innerText;
-        filterFunc(selectedValue);
-
-        lastClickedBtn.classList.remove('active');
-        this.classList.add('active');
-        lastClickedBtn = this;
-
-    })
-}
-
-// Enabling Contact Form
-
-const form = document.querySelector('[data-form]');
-const formInputs = document.querySelectorAll('[data-form-input]');
-const formBtn = document.querySelector('[data-form-btn]');
-
-for(let i = 0; i < formInputs.length; i++) {
-    formInputs[i].addEventListener('input', function () {
-        if(form.checkValidity()) {
-            formBtn.removeAttribute('disabled');
-        } else { 
-            formBtn.setAttribute('disabled', '');
-        }
-    })
-}
-
-// Enabling Page Navigation 
-
-const navigationLinks = document.querySelectorAll('[data-nav-link]');
-const pages = document.querySelectorAll('[data-page]');
-
-for(let i = 0; i < navigationLinks.length; i++) {
-    navigationLinks[i].addEventListener('click', function() {
-        
-        for(let i = 0; i < pages.length; i++) {
-            if(this.innerHTML.toLowerCase() == pages[i].dataset.page) {
-                pages[i].classList.add('active');
-                navigationLinks[i].classList.add('active');
-                window.scrollTo(0, 0);
+            // Rectangular boundary intersection for target card
+            const halfW = (targetRect.width / 2) + 6;
+            const halfH = (targetRect.height / 2) + 6;
+            const absCos = Math.abs(cosA);
+            const absSin = Math.abs(sinA);
+            let targetDist;
+            if (halfW * absSin <= halfH * absCos) {
+                targetDist = halfW / absCos;
             } else {
-                pages[i].classList.remove('active');
-                navigationLinks[i]. classList.remove('active');
+                targetDist = halfH / absSin;
+            }
+            const endX = tCenterX - cosA * targetDist;
+            const endY = tCenterY - sinA * targetDist;
+
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', startX);
+            line.setAttribute('y1', startY);
+            line.setAttribute('x2', endX);
+            line.setAttribute('y2', endY);
+            line.setAttribute('class', 'graph-edge');
+            line.setAttribute('id', `edge-${role.id}`);
+            line.setAttribute('marker-end', 'url(#arrow)');
+
+            linesGroup.appendChild(line);
+
+            role.el.addEventListener('mouseenter', () => line.classList.add('active'));
+            role.el.addEventListener('mouseleave', () => line.classList.remove('active'));
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // Tier 2: Sub-Graph Line Connectors Helper
+    // ----------------------------------------------------------------------
+    function drawSubGraph(sceneId, linesGroupId, rootNodeId, cardSelector, arrowId) {
+        const subScene = document.getElementById(sceneId);
+        const subLinesGroup = document.getElementById(linesGroupId);
+        const rootNode = document.getElementById(rootNodeId);
+
+        if (!subScene || !subLinesGroup || !rootNode || window.innerWidth <= 768) {
+            if (subLinesGroup) subLinesGroup.innerHTML = '';
+            return;
+        }
+
+        const sceneRect = subScene.getBoundingClientRect();
+        const rootRect = rootNode.getBoundingClientRect();
+
+        const rX = (rootRect.left + rootRect.width / 2) - sceneRect.left;
+        const rY = (rootRect.bottom) - sceneRect.top;
+
+        subLinesGroup.innerHTML = '';
+        const cards = subScene.querySelectorAll(cardSelector);
+
+        cards.forEach((card) => {
+            const cardRect = card.getBoundingClientRect();
+            const nX = (cardRect.left + cardRect.width / 2) - sceneRect.left;
+            const nY = (cardRect.top) - sceneRect.top - 6;
+
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', rX);
+            line.setAttribute('y1', rY + 4);
+            line.setAttribute('x2', nX);
+            line.setAttribute('y2', nY);
+            line.setAttribute('class', 'graph-edge');
+            line.setAttribute('marker-end', `url(#${arrowId})`);
+
+            subLinesGroup.appendChild(line);
+
+            card.addEventListener('mouseenter', () => line.classList.add('active'));
+            card.addEventListener('mouseleave', () => line.classList.remove('active'));
+        });
+    }
+
+    function drawAllSubGraphs() {
+        drawSubGraph('mleScene', 'mleLinesGroup', 'mleRootNode', '.startup-node', 'subArrow');
+        drawSubGraph('techScene', 'techLinesGroup', 'techRootNode', '.startup-node', 'techArrow');
+        drawSubGraph('dancerScene', 'dancerLinesGroup', 'dancerRootNode', '.startup-node', 'dancerArrow');
+    }
+
+    // ----------------------------------------------------------------------
+    // Navigation Triggers for the 3 Roles (Slide-Up Panels)
+    // ----------------------------------------------------------------------
+    const allSubgraphs = document.querySelectorAll('.subgraph-view');
+    const nodeMle = document.getElementById('nodeMle');
+    const mleSection = document.getElementById('mleSection');
+
+    const nodeTech = document.getElementById('nodeTech');
+    const techSection = document.getElementById('techSection');
+
+    const nodeDancer = document.getElementById('nodeDancer');
+    const dancerSection = document.getElementById('dancerSection');
+
+    function openSubGraph(section) {
+        if (!section) return;
+        allSubgraphs.forEach(s => s.classList.remove('active'));
+        section.classList.add('active');
+        section.scrollTop = 0;
+        setTimeout(() => {
+            drawAllSubGraphs();
+        }, 200);
+    }
+
+    function closeAllSubGraphs() {
+        allSubgraphs.forEach(s => s.classList.remove('active'));
+    }
+
+    if (nodeMle && mleSection) {
+        nodeMle.addEventListener('click', () => openSubGraph(mleSection));
+    }
+
+    if (nodeTech && techSection) {
+        nodeTech.addEventListener('click', () => openSubGraph(techSection));
+    }
+
+    if (nodeDancer && dancerSection) {
+        nodeDancer.addEventListener('click', () => openSubGraph(dancerSection));
+    }
+
+    // All "Return to Ojasvita Nexus" Buttons
+    const backButtons = document.querySelectorAll('.back-link, #backToHub, .back-to-hub-btn');
+    backButtons.forEach((btn) => {
+        btn.addEventListener('click', closeAllSubGraphs);
+    });
+
+    // ----------------------------------------------------------------------
+    // Central Node: Intro Modal Interactions
+    // ----------------------------------------------------------------------
+    const introModalBackdrop = document.getElementById('introModalBackdrop');
+    const introCloseBtn = document.getElementById('introCloseBtn');
+
+    function openIntroModal() {
+        if (!introModalBackdrop) return;
+        introModalBackdrop.classList.add('active');
+        introModalBackdrop.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeIntroModal() {
+        if (!introModalBackdrop) return;
+        introModalBackdrop.classList.remove('active');
+        introModalBackdrop.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    if (centerNode) {
+        centerNode.addEventListener('click', openIntroModal);
+        centerNode.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openIntroModal();
+            }
+        });
+    }
+
+    if (introCloseBtn) {
+        introCloseBtn.addEventListener('click', closeIntroModal);
+    }
+
+    if (introModalBackdrop) {
+        introModalBackdrop.addEventListener('click', (e) => {
+            if (e.target === introModalBackdrop) {
+                closeIntroModal();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (introModalBackdrop && introModalBackdrop.classList.contains('active')) {
+                closeIntroModal();
+            } else {
+                closeAllSubGraphs();
             }
         }
     });
-}
+
+    // Initial renders
+    drawMainGraph();
+    drawAllSubGraphs();
+
+    // Resize handling
+    window.addEventListener('resize', debounce(() => {
+        drawMainGraph();
+        drawAllSubGraphs();
+    }, 100));
+
+    // Utility: Debounce
+    function debounce(fn, wait) {
+        let timer;
+        return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => fn.apply(this, args), wait);
+        };
+    }
+});

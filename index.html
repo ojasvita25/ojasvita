@@ -4,402 +4,509 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Space x Ojasvita</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Ojasvita Walgad</title>
+    <meta name="title" content="Ojasvita Walgad">
+    <meta name="description"
+        content="Ojasvita Walgad — Machine Learning Engineer, Creative Technologist, Dancer. Portfolio exploring AI, computer vision, generative media, and dance.">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ojasvita Walgad — ML Engineer &bull; Creative Technologist &bull; Dancer">
+    <meta property="og:description"
+        content="Portfolio exploring AI, edge computer vision, generative media, interactive installations, and dance.">
+    <meta property="og:image" content="portfolio_images/picture.webp">
+
+    <!-- Twitter / X -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Ojasvita Walgad — ML Engineer &bull; Creative Technologist &bull; Dancer">
+    <meta property="twitter:description"
+        content="Portfolio exploring AI, computer vision, generative media, interactive installations, and dance.">
+    <meta property="twitter:image" content="portfolio_images/picture.webp">
+
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
 
+    <!-- Google Fonts: Editorial Serif + Modern Clean Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <main>
-        <aside class="sidebar " data-sidebar>
-            <div class="sidebar-info">
-                <figure class="avatar-box">
-                    <img src="portfolio_images/picture.png" alt="avatar" width="80">
-                </figure>
+    <main class="canvas-wrapper">
+        <div class="graph-scene" id="graphScene">
+            <!-- SVG Connecting Lines & Arrows -->
+            <svg class="connections-svg" id="connectionsSvg" aria-hidden="true">
+                <defs>
+                    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6"
+                        orient="auto-start-reverse">
+                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#111111" />
+                    </marker>
+                </defs>
+                <g id="linesGroup"></g>
+            </svg>
 
-                <div class="info-content">
-                    <h1 class="name" title="Ojasvita Walgad">Ojasvita Walgad</h1>
-                    <p class="title">📟 ML Engineer 🎨 AI Artist <br> 💃 Classical Dancer</p>
+            <!-- Triangular Role Nodes -->
+            <!-- Top Vertex: Machine Learning Engineer -->
+            <div class="role-node node-top" id="nodeMle" data-role="mle">
+                <div class="role-card">
+                    <h2 class="role-title">Machine Learning Engineer</h2>
+                </div>
+            </div>
+
+            <!-- Bottom Left Vertex: Creative Technologist -->
+            <div class="role-node node-bottom-left" id="nodeTech" data-role="creative-tech">
+                <div class="role-card">
+                    <h2 class="role-title">Creative Technologist</h2>
+                </div>
+            </div>
+
+            <!-- Bottom Right Vertex: Dancer -->
+            <div class="role-node node-bottom-right" id="nodeDancer" data-role="dancer">
+                <div class="role-card">
+                    <h2 class="role-title">Dancer</h2>
+                </div>
+            </div>
+
+            <!-- Central Hub Node: Ojasvita -->
+            <div class="central-node" id="centralNode" role="button" tabindex="0" title="Click to read about Ojasvita"
+                aria-haspopup="dialog">
+                <div class="central-core">
+                    <div class="central-avatar-wrap">
+                        <img src="portfolio_images/picture.webp" alt="Ojasvita Walgad" class="central-avatar">
+                    </div>
+                    <h1 class="central-name">Ojasvita</h1>
+                </div>
+            </div>
+        </div>
+
+        <!-- Intro Modal Overlay -->
+        <div class="intro-modal-backdrop" id="introModalBackdrop" aria-hidden="true">
+            <div class="intro-modal-card" id="introModalCard" role="dialog" aria-labelledby="introName">
+                <button class="modal-close-btn" id="introCloseBtn" aria-label="Close intro modal">&times;</button>
+
+                <div class="intro-modal-header">
+                    <div class="intro-avatar-wrap">
+                        <img src="portfolio_images/picture.webp" alt="Ojasvita Walgad" class="intro-avatar">
+                    </div>
+                    <div>
+                        <h2 class="intro-name" id="introName">Ojasvita Walgad</h2>
+                        <p class="intro-role-subtitle">ML Engineer &bull; Creative Technologist &bull; Dancer
+                        </p>
+                        <span class="intro-location">Bangalore, India</span>
+                    </div>
                 </div>
 
-                <button class="info-more-btn" data-sidebar-btn>
-                    <span>Show Contacts</span>
-                    <ion-icon name="chevron-down"></ion-icon>
-                </button>
-            </div>
-
-            <div class="sidebar-info-more">
-                <div class="separator"></div>
-
-                <ul class="contacts-list">
-                    <li class="contact-item">
-                        <div class="icon-box">
-                            <ion-icon name="mail-outline"></ion-icon>
-                        </div>
-
-                        <div class="contact-info">
-                            <p class="contact-title">Email</p>
-
-                            <a href="mailto:mail2ojasv@gmail.com" class="contact-link">mail2ojasv@gmail.com</a>
-                        </div>
-                    </li>
-
-                    <li class="contact-item">
-                        <div class="icon-box">
-                            <ion-icon name="location-outline"></ion-icon>
-                        </div>
-
-                        <div class="contact-info">
-                            <p class="contact-title">Location</p>
-
-                            <address>Bangalore, India</address>
-                        </div>
-                    </li>
-                </ul>
-
-                <div class="separator"></div>
-
-                <ul class="social-list">
-                    <li class="social-item"><a href="https://linkedin.com/in/ojasvita-walgad-9a629511a"
-                            class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                    <li class="social-item"><a href="https://www.instagram.com/origamisukidesu/"
-                            class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
-                </ul>
-            </div>
-        </aside>
-
-        <div class="main-content">
-            <nav class="navbar">
-                <ul class="navbar-list">
-                    <li class="navbar-item"><button class="navbar-link active" data-nav-link>About</button></li>
-                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Resume</button></li>
-                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Portfolio</button></li>
-                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Blog</button></li>
-                    <li class="navbar-item"><button class="navbar-link" data-nav-link>Contact</button></li>
-                </ul>
-            </nav>
-
-            <article class="about active" data-page="about">
-                <header>
-                    <h2 class="h2 article-title">About me</h2>
-                </header>
-
-                <section class="about-text">
-                    <p>ML Engineer and Creative Technologist with experience building large-scale computer vision and
-                        generative AI systems. My work spans deep learning, multimodal models, and generative pipelines,
-                        with experience deploying AI systems in real-world environments.</p>
-
-                    <p>Alongside engineering, I explore storytelling and performance through creative
-                        technologies—working with tools like ComfyUI, LoRA training, and TouchDesigner to prototype
-                        AI-driven narratives and movement-reactive visual environments.</p>
-
-                    <p>I’m currently interested in GenAI R&D roles within the media and entertainment industry,
-                        particularly exploring visual transformers, multimodal systems, and new forms of AI-assisted
-                        storytelling. I’m also open to collaborating with artists and technologists on experimental new
-                        media and performance-based work.
+                <div class="intro-body">
+                    <p>
+                        Hello! I am an <strong>ML Engineer</strong> and an <strong>Interdisciplinary Artist</strong>. I
+                        code, dance, and sometimes both.
                     </p>
-                    <div class="modal-container " data-modal-container>
-                        <div class="overlay " data-overlay></div>
+                    <p>
+                        My experience spans deploying real-time video analytics across 700+ commercial
+                        stores in the US (RadiusAI), developing custom LoRAs and Vision-Language
+                        Models (VLMs) for visual datasets (HedwigAI), and creating interactive
+                        installations on AI ethics (Param Science Experience Center).
+                    </p>
+                    <p>
+                        Alongside engineering, I am a certified Kathak dancer (Senior Diploma candidate
+                        under Prayag Sangeet Samiti), researching how choreography and algorithmic systems can
+                        inform new aesthetics in performance and storytelling.
+                    </p>
+                </div>
 
-                        <section class="testimonials-modal">
-                            <button class="modal-close-btn" data-modal-close-btn><ion-icon
-                                    name="close-outline"></ion-icon></button>
-
-                        </section>
+                <div class="intro-footer">
+                    <div class="intro-socials">
+                        <a href="mailto:mail2ojasv@gmail.com" class="intro-link">mail2ojasv@gmail.com &nearr;</a>
+                        <a href="https://linkedin.com/in/ojasvita-walgad-9a629511a" target="_blank"
+                            rel="noopener noreferrer" class="intro-link">LinkedIn &nearr;</a>
+                        <a href="https://github.com/ojasvita25" target="_blank" rel="noopener noreferrer"
+                            class="intro-link">GitHub &nearr;</a>
+                        <a href="https://www.instagram.com/origamisukidesu/" target="_blank" rel="noopener noreferrer"
+                            class="intro-link">Instagram &nearr;</a>
                     </div>
-
-            </article>
-
-            <article class="resume " data-page="resume">
-                <header>
-                    <h2 class="h2 article-title">Resume</h2>
-                </header>
-
-                <section class="timeline">
-                    <div class="title-wrapper">
-                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
-
-                        <h3 class="h3">Experience</h3>
-                    </div>
-
-                    <ol class="timeline-list">
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Creative Technologist, Param Science Experience Center
-                            </h4>
-                            <span>Sept 2025 - Nov 2025</span>
-                            <p class="timeline-text">Designed, built, and tested Hide Else, AI Seeks, an interactive
-                                game installa-
-                                tion exploring ethical issues in AI surveillance, playfully inviting audiences
-                                to experiment with avoiding detection by AI systems; implemented using
-                                Pygame while applying principles of game design, interaction design, and
-                                tech art installations.</p>
-                            <span class="cvtag">AI Ethics</span>
-                            <span class="cvtag">Interactive Installations</span>
-                            <span class="cvtag">Game Design</span>
-                        </li>
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">AI Futures Fellow, Gooey.AI & Jaaga Trust</h4>
-                            <span>Feb 2025 - May 2025</span>
-                            <p class="timeline-text">I created JengAI, a short film on an AI-powered smart city using
-                                generative AI tools to explore inclusive, participatory futures through speculative
-                                storytelling. This work was also selected to be screened at Dhruma film Festival,
-                                Darjeeling.</p>
-                            <span class="cvtag">Prompt Engineering</span>
-                            <span class="cvtag">Generative AI</span>
-                            <span class="cvtag">Futures Thinking</span>
-                            <span class="cvtag">Narrative Design</span>
-                            <span class="cvtag">Filmmaking</span>
-                        </li>
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Gen AI Engineer, HedwigAI</h4>
-                            <span>Dec 2023 - April 2024</span>
-                            <p class="timeline-text">I built multiple proof-of-concept projects leveraging generative AI
-                                models for diverse business applications, including a storytelling app using SDXL and
-                                LoRA, document OCR solutions for fintech/edtech, etc.</p>
-                            <span class="cvtag">Huggingface</span>
-                            <span class="cvtag">LoRA Training</span>
-                            <span class="cvtag">PyTorch</span>
-                            <span class="cvtag">PEFT</span>
-                            <span class="cvtag">Transformers</span>
-                            <span class="cvtag">LLMs</span>
-                            <span class="cvtag">RAG</span>
-                            <span class="cvtag">Knowledge Base</span>
-                        </li>
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Sr. Deep Learning Engineer, RadiusAI</h4>
-                            <span>Feb 2020 - Oct 2023</span>
-                            <p class="timeline-text">I contributed to the development and deployment of real-time video
-                                analytics solutions for retail environments, implemented across 700 convenience stores
-                                in the US.</p>
-                            <span class="cvtag">Object Tracking</span>
-                            <span class="cvtag">Computer Vision</span>
-                            <span class="cvtag">Edge Deployment</span>
-                            <span class="cvtag">Point Clouds</span>
-                            <span class="cvtag">Behavioral Analytics</span>
-                            <span class="cvtag">Retail Tech</span>
-                        </li>
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Software Developer R&D, Reliance Jio Infocom Ltd.</h4>
-                            <span>Jul 2019 - Jan 2020</span>
-                            <p class="timeline-text">I worked on telecom 5G infrastructure, gaining hands-on experience
-                                with network protocols, performance tuning, and system-level debugging to en- hance
-                                reliability and efficiency of telecom systems.</p>
-                            <span class="cvtag">5G Infrastructure</span>
-                            <span class="cvtag">Network Protocols</span>
-                        </li>
-
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Software Developer Intern, Nowent Inc.</h4>
-                            <span>May 2017 - Jul 2017</span>
-                            <p class="timeline-text">I built a Self-Service iOS Lead Capture App which improves
-                                company’s engagement with their trade show visitors.</p>
-                            <span class="cvtag">UI/UX Design</span>
-                            <span class="cvtag">Swift</span>
-                            <span class="cvtag">iOS App Development</span>
-
-                        </li>
-
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Super-Coordinator, WebOps Team, Shaastra (IITM Tech
-                                Festival)</h4>
-                            <span>May 2016 - March 2017</span>
-                            <p class="timeline-text">I led a Frontend team of 7 to build Shaastra's website, received 10
-                                million+ cumulative hits, over 15,000 unique visitors.</p>
-                            <span class="cvtag">Frontend Development</span>
-                            <span class="cvtag">MEAN Stack</span>
-                            <span class="cvtag">Parallax Scrolling</span>
-                        </li>
-                    </ol>
-                </section>
-                <section class="timeline">
-                    <div class="title-wrapper">
-                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
-
-                        <h3 class="h3">Education</h3>
-                    </div>
-                    <ol class="timeline-list">
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Strings 'N' Steps Academy of Performing Arts</h4>
-                            <span>2020 - present</span>
-                            <p class="timeline-text">Certified Kathak dancer with formal training under the Prayag
-                                Sangeet Samiti curriculum. Currently pursuing Senior Diploma (equivalent to a bachelor’s
-                                level) in Kathak. Actively training to be a stage performer and have participated in
-                                multiple group and solo performances as part of academy showcases and cultural events.
-                            </p>
-                        </li>
-                    </ol>
-                    <br>
-                    <ol class="timeline-list">
-                        <li class="timeline-item">
-                            <h4 class="h4 timeline-item-title">Indian Institute of Technology, Madras</h4>
-                            <span>2014 - 2019</span>
-                            <p class="timeline-text">There I pursued BTech in Electrical Engineering and MTech in
-                                Applied Mechanics under Dual degree programme. And, completed my final project in
-                                attention-based deep reinforcement learning for simulating human search behavior in road
-                                video object localization under Professor Srinivasa Chakravarthy — a collaborative
-                                research project with Continental Automotive.</p>
-                        </li>
-                    </ol>
-                </section>
-            </article>
-
-            <article class="portfolio " data-page="portfolio">
-                <header>
-                    <h2 class="h2 article-title">Portfolio</h2>
-                </header>
-
-                <section class="projects">
-                    <ul class="filter-list">
-                        <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
-                    </ul>
-
-                    <div class="filter-select-box">
-                        <button class="filter-select " data-select>
-                            <div class="select-value" data-select-value>Select Category</div>
-
-                            <div class="select-icon">
-                                <ion-icon name="chevron-down"></ion-icon>
-                            </div>
-                        </button>
-
-                        <ul class="select-list">
-                            <li class="select-item"><button data-select-item>All</button></li>
-                            <!-- <li class="select-item"><button data-select-item>Creative AI Tech</button></li> -->
-                        </ul>
-                    </div>
-
-                    <ul class="project-list">
-                        <li class="project-item active" data-filter-item data-category="Creative AI Tech">
-                            <a href="https://vimeo.com/1206715541?share=copy&fl=sv&fe=ci">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-                                    <img src="portfolio_images/dancetd.png" alt="dancetouchdesigner" loading="lazy">
-                                </figure>
-                                <h3 class="project-title">Dance x TouchDesigner</h3>
-                                <p class="project-category">Elton John cover ft TD</p>
-                            </a>
-                        </li>
-                        <li class="project-item active" data-filter-item data-category="Creative AI Tech">
-                            <a href="https://www.youtube.com/watch?v=h37t5wpGk0E&t=1s">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-                                    <img src="portfolio_images/unmaya.png" alt="Unmaya" loading="lazy">
-                                </figure>
-                                <h3 class="project-title">Unmaya</h3>
-                                <p class="project-category">AI x Dance Experimental Film</p>
-                            </a>
-                        </li>
-                        <li class="project-item active" data-filter-item data-category="Creative AI Tech">
-                            <a href="https://www.youtube.com/watch?v=VzK2ExOUKwM">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-                                    <img src="portfolio_images/jengai.png" alt="JengAI (AI Film)" loading="lazy">
-                                </figure>
-                                <h3 class="project-title">JengAI (AI Film)</h3>
-                                <p class="project-category">AI Futures Fellowship</p>
-                            </a>
-                        </li>
-
-                        <li class="project-item active" data-filter-item data-category="web development">
-                            <a href="https://github.com/ojasvita25/nava-rasa-fer">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="portfolio_images/demo.gif" alt="orizon" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Nava Rasa</h3>
-                                <p class="project-category">Interactive FER Project</p>
-                            </a>
-                        </li>
-
-                        <li class="project-item active" data-filter-item data-category="web design">
-                            <a href="#">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-
-                                    <img src="portfolio_images/oriAI.png" alt="fundo" loading="lazy">
-                                </figure>
-
-                                <h3 class="project-title">Origami x AI</h3>
-                                <p class="project-category">Mixed Media Project</p>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-            </article>
-
-            <article class="blog " data-page="blog">
-                <header>
-                    <h2 class="h2 article-title">Blog</h2>
-                </header>
-
-                <!-- <section class="blog-posts">
-                    <ul class="blog-posts-list">
-
-                        <li class="blog-post-item">
-                            <a href="#">
-                                <figure class="blog-banner-box">
-                                    <img src="https://i.postimg.cc/zBCBvP16/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                                </figure>
-
-                                <div class="blog-content">
-                                    <div class="blog-meta">
-                                        <p class="blog-category">Design</p>
-                                        <span class="dot"></span>
-                                        <time datetime="2023-10-20">Oct 20, 2023</time>
-                                    </div>
-
-                                    <h3 class="h3 blog-item-title">Design digest #79</h3>
-                                    <p class="blog-text">Hi, my friends. In this Design Digest I'll focus in the tools and resources that we use daily in our projects. Also, I'll include examples of software recommendations, online courses, and design communities that foster collaboration and learning.</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </section> -->
-            </article>
-
-            <article class="contact " data-page="contact">
-                <header>
-                    <h2 class="h2 article-title">Contact</h2>
-                </header>
-
-                <section class="contact-form">
-                    <!-- <h3 class="h3 form-title">Contact Form</h3>
-
-                    <form action="#" class="form" data-form>
-                        <div class="input-wrapper">
-                            <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-                            <input type="email" name="email" class="form-input" placeholder="Email Address" required data-form-input>
-                        </div>
-
-                        <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input=""></textarea>
-
-                        <button class="form-btn" type="submit" disabled data-form-btn>
-                            <ion-icon name="paper-plane"></ion-icon>
-                            <span>Send Message</span>
-                        </button>
-                    </form> -->
-                </section>
-            </article>
+                </div>
+            </div>
         </div>
+
+        <!-- Machine Learning Engineer Sub-graph Section -->
+        <section class="subgraph-view" id="mleSection" aria-label="Machine Learning Engineer Startup Experience">
+            <div class="subgraph-nav">
+                <button class="back-link" id="backToHub">&larr; Return</button>
+                <span class="subgraph-crumb">Startups & Applied Engineering</span>
+            </div>
+
+            <div class="subgraph-scene" id="mleScene">
+                <!-- SVG Connections for Startup Sub-nodes -->
+                <svg class="subgraph-svg" id="mleSvg" aria-hidden="true">
+                    <defs>
+                        <marker id="subArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6"
+                            orient="auto-start-reverse">
+                            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#111111" />
+                        </marker>
+                    </defs>
+                    <g id="mleLinesGroup"></g>
+                </svg>
+
+                <!-- Root MLE Node in Sub-graph -->
+                <div class="mle-root-node" id="mleRootNode">
+                    <h2 class="root-title">Machine Learning Engineer</h2>
+                </div>
+
+                <!-- Startup Sub-nodes Grid / Constellation -->
+                <div class="startup-nodes-wrap" id="startupNodesWrap">
+                    <!-- Startup 1: HedwigAI -->
+                    <div class="startup-node" id="startupHedwig" data-startup="hedwig">
+                        <div class="startup-card">
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">HedwigAI</span>
+                                    <span class="startup-period">2023 &mdash; 2024</span>
+                                </div>
+                                <h3 class="startup-role">Gen AI Engineer</h3>
+                                <p class="startup-desc">Custom LoRA and VLMS for real world educational math image
+                                    dataset</p>
+                                <div class="startup-tags">
+                                    <span>LoRA</span>
+                                    <span>PyTorch</span>
+                                    <span>Transformers</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Startup 2: RadiusAI -->
+                    <div class="startup-node" id="startupRadius" data-startup="radius">
+                        <div class="startup-card">
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">RadiusAI</span>
+                                    <span class="startup-period">2020 &mdash; 2023</span>
+                                </div>
+                                <h3 class="startup-role">Sr. Deep Learning Engineer</h3>
+                                <p class="startup-desc">Deployed real-time edge computer vision & multi-camera tracking
+                                    systems across 700+ retail stores in the US; 3D point cloud calibration.</p>
+                                <div class="startup-tags">
+                                    <span>Edge CV</span>
+                                    <span>Tracking</span>
+                                    <span>Point Clouds</span>
+                                    <span>700+ Stores</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Startup 3: Reliance Jio R&D -->
+                    <div class="startup-node" id="startupJio" data-startup="jio">
+                        <div class="startup-card">
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Reliance Jio Infocomm</span>
+                                    <span class="startup-period">2019 &mdash; 2020</span>
+                                </div>
+                                <h3 class="startup-role">Software Developer R&D</h3>
+                                <p class="startup-desc">Engineered 5G telecom core infrastructure modules, protocol
+                                    stack
+                                    optimization, and high-performance system debugging.</p>
+                                <div class="startup-tags">
+                                    <span>5G Core</span>
+                                    <span>Protocols</span>
+                                    <span>C++</span>
+                                    <span>Telecom</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Startup 4: Continental & IIT Madras -->
+                    <div class="startup-node" id="startupIitm" data-startup="iitm">
+                        <div class="startup-card">
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Continental &times; IIT Madras</span>
+                                    <span class="startup-period">2018 &mdash; 2019</span>
+                                </div>
+                                <h3 class="startup-role">Dual Degree Project</h3>
+                                <p class="startup-desc">Collaborative automotive project: Simulated human visual search
+                                    patterns in road video localization using attention-based reinforcement learning.
+                                </p>
+                                <div class="startup-tags">
+                                    <span>Deep RL</span>
+                                    <span>Traffic Sign Detection</span>
+                                    <span>Computer Vision</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creative Technologist Sub-graph Section -->
+        <section class="subgraph-view" id="techSection" aria-label="Creative Technologist Installations and Projects">
+            <div class="subgraph-nav">
+                <button class="back-link back-to-hub-btn">&larr; Return</button>
+                <span class="subgraph-crumb">Creative Technology &bull; Installations & Media</span>
+            </div>
+
+            <div class="subgraph-scene" id="techScene">
+                <!-- SVG Connections for Creative Tech Nodes -->
+                <svg class="subgraph-svg" id="techSvg" aria-hidden="true">
+                    <defs>
+                        <marker id="techArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6"
+                            orient="auto-start-reverse">
+                            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#111111" />
+                        </marker>
+                    </defs>
+                    <g id="techLinesGroup"></g>
+                </svg>
+
+                <!-- Root Node in Sub-graph -->
+                <div class="mle-root-node" id="techRootNode">
+                    <h2 class="root-title">Creative Technologist</h2>
+                </div> <!-- Sub-nodes Grid -->
+                <div class="startup-nodes-wrap" id="techNodesWrap">
+                    <!-- Tech Node 1: Unmaya Film -->
+                    <div class="startup-node" id="techUnmaya">
+                        <div class="startup-card">
+                            <div class="card-media-wrap">
+                                <img src="portfolio_images/unmaya.webp" alt="Unmaya Film" class="card-media"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Experimental Dance Film</span>
+                                    <span class="startup-period">2026</span>
+                                </div>
+                                <h3 class="startup-role">Unmaya: AI &times; TFBD (Tribal fusion belly dance)</h3>
+                                <p class="startup-desc">‘Unmaya - A woman, a dance and her body in between’ is an AI
+                                    short film that delves into an Indian woman's body image and mental health as she
+                                    indulges in tribal fusion belly dance, a movement form she has come to love.</p>
+                                <div class="startup-tags">
+                                    <span>Dance AI Film</span>
+                                    <span>Embodied Emotions</span>
+                                    <span>Body Positivity</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://www.youtube.com/watch?v=h37t5wpGk0E&t=1s" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>Watch Film</span>
+                                        <span class="action-arrow">&nearr;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Node 2: AI Futures Fellowship (JengAI) -->
+                    <div class="startup-node" id="techJengai">
+                        <div class="startup-card">
+                            <div class="card-media-wrap">
+                                <img src="portfolio_images/jengai.webp" alt="JengAI Speculative Film" class="card-media"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Gooey.AI &times; Jaaga Trust</span>
+                                    <span class="startup-period">2025</span>
+                                </div>
+                                <h3 class="startup-role">JengAI: AI Film</h3>
+                                <p class="startup-desc">JengAI is a short film about speculative futures, inspired by
+                                    the games we played as children and the critical questions we ask about technology,
+                                    control, and creativity. It was created during the AI Futures Fellowship and
+                                    screened at the Dhruma Film Festival, Darjeeling 2025.</p>
+                                <div class="startup-tags">
+                                    <span>Generative AI Film</span>
+                                    <span>Futures Thinking</span>
+                                    <span>Prompt Engineering</span>
+                                    <span>Dhruma Film Festival</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://www.youtube.com/watch?v=VzK2ExOUKwM" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>Watch Film</span>
+                                        <span class="action-arrow">&nearr;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Node 3: Param Science Experience Center -->
+                    <div class="startup-node" id="techParam">
+                        <div class="startup-card">
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Param Science Experience Center</span>
+                                    <span class="startup-period">2025</span>
+                                </div>
+                                <h3 class="startup-role">Hide Else, AI Seeks</h3>
+                                <p class="startup-desc">An interactive hide-and-seek installation where visitors
+                                    playfully test ways to outsmart and evade AI detection. Built using Pygame,
+                                    computer vision, and physical sensor systems to spark curiosity around machine
+                                    perception.</p>
+                                <div class="startup-tags">
+                                    <span>Interactive Installation</span>
+                                    <span>AI Ethics</span>
+                                    <span>Game Design</span>
+                                    <span>Pygame</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Node 4: Nava Rasa Emotion AI -->
+                    <div class="startup-node" id="techNavarasa">
+                        <div class="startup-card">
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Nava Rasa &times; Natyashastra </span>
+                                    <span class="startup-period">2024</span>
+                                </div>
+                                <h3 class="startup-role">Nava Rasa: Affective Expression</h3>
+                                <p class="startup-desc">Nava Rasa is an interactive web experience built with Flask that
+                                    explores the 9 classical emotions (Rasas) as mentioned in Indian
+                                    scriptures (Natyashastra) for performing arts. Each Rasa is brought to life through
+                                    visuals and audio, offering users an immersive way to engage with emotions.</p>
+                                <div class="startup-tags">
+                                    <span>Nava Rasa</span>
+                                    <span>Affective AI</span>
+                                    <span>Emotion Recognition</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://github.com/ojasvita25/nava-rasa-fer" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>View on GitHub</span>
+                                        <span class="action-arrow">&nearr;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tech Node 5: Origami x AI -->
+                    <div class="startup-node" id="techOrigami">
+                        <div class="startup-card">
+                            <div class="card-media-wrap">
+                                <img src="portfolio_images/oriAI.webp" alt="Origami x AI" class="card-media"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Mixed Media</span>
+                                    <span class="startup-period">2024</span>
+                                </div>
+                                <h3 class="startup-role">Origami &times; AI</h3>
+                                <p class="startup-desc">Mixed media practice blending AI (Stable Diffusion) and origami
+                                    fold images.</p>
+                                <div class="startup-tags">
+                                    <span>Comfyui</span>
+                                    <span>Origami</span>
+                                    <span>Generative AI</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://www.instagram.com/origamisukidesu/" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>Instagram Archive</span>
+                                        <span class="action-arrow">&nearr;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classical Dancer Sub-graph Section -->
+        <section class="subgraph-view" id="dancerSection" aria-label="Classical Dancer Training and Performances">
+            <div class="subgraph-nav">
+                <button class="back-link back-to-hub-btn">&larr; Return</button>
+                <span class="subgraph-crumb">Classical Arts &bull; Dance & Tech</span>
+            </div>
+
+            <div class="subgraph-scene" id="dancerScene">
+                <!-- SVG Connections for Dancer Nodes -->
+                <svg class="subgraph-svg" id="dancerSvg" aria-hidden="true">
+                    <defs>
+                        <marker id="dancerArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6"
+                            orient="auto-start-reverse">
+                            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#111111" />
+                        </marker>
+                    </defs>
+                    <g id="dancerLinesGroup"></g>
+                </svg>
+
+                <!-- Root Node in Sub-graph -->
+                <div class="mle-root-node" id="dancerRootNode">
+                    <h2 class="root-title">Dancer</h2>
+                </div>
+
+                <!-- Sub-nodes Grid -->
+                <div class="startup-nodes-wrap" id="dancerNodesWrap">
+                    <!-- Dancer Node 1: Strings 'N' Steps Academy -->
+                    <div class="startup-node" id="dancerTraining">
+                        <div class="startup-card">
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Strings 'N' Steps Academy</span>
+                                    <span class="startup-period">2020 &mdash; Present</span>
+                                </div>
+                                <h3 class="startup-role">Kathak Senior Diploma</h3>
+                                <p class="startup-desc">Certified Kathak dancer training under the formal Prayag Sangeet
+                                    Samiti curriculum (Senior Diploma, equivalent to bachelor's degree level). Active
+                                    stage
+                                    performer across solo and group cultural showcases.</p>
+                                <div class="startup-tags">
+                                    <span>Kathak</span>
+                                    <span>Prayag Sangeet Samiti</span>
+                                    <span>Senior Diploma</span>
+                                    <span>Stage Repertoire</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dancer Node 2: Dance x TouchDesigner -->
+                    <div class="startup-node" id="dancerTd">
+                        <div class="startup-card">
+                            <div class="card-media-wrap">
+                                <img src="portfolio_images/dancetd.webp" alt="Dance x TouchDesigner" class="card-media"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Motion Reactive Systems</span>
+                                    <span class="startup-period">2024</span>
+                                </div>
+                                <h3 class="startup-role">Dance &times; TouchDesigner</h3>
+                                <p class="startup-desc">Elton John dance cover movement-reactive spotlight using
+                                    TouchDesigner exploring phygital performance.</p>
+                                <div class="startup-tags">
+                                    <span>TouchDesigner</span>
+                                    <span>Mediapipe</span>
+                                    <span>Performance</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://vimeo.com/1206715541?share=copy&fl=sv&fe=ci" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>Watch on Vimeo</span>
+                                        <span class="action-arrow">&nearr;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="main.js"></script>
-
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
