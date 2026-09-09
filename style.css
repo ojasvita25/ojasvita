@@ -749,8 +749,61 @@ html, body {
    RESPONSIVE ADAPTATIONS
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
+    .canvas-wrapper {
+        padding: 16px 12px;
+    }
+
+    .graph-scene {
+        height: 100%;
+        max-height: 520px;
+    }
+
+    .central-core {
+        padding: 8px 22px 8px 10px;
+        gap: 12px;
+    }
+
+    .central-avatar-wrap {
+        width: 48px;
+        height: 48px;
+    }
+
+    .central-name {
+        font-size: 1.75rem;
+    }
+
+    .central-hint {
+        font-size: 0.65rem;
+    }
+
+    .node-top {
+        top: calc(50% - 140px);
+        left: 50%;
+    }
+
+    .node-bottom-left {
+        top: calc(50% + 135px);
+        left: calc(50% - 85px);
+    }
+
+    .node-bottom-right {
+        top: calc(50% + 135px);
+        left: calc(50% + 85px);
+    }
+
+    .role-card {
+        padding: 9px 16px;
+    }
+
+    .role-title {
+        font-size: 0.8125rem;
+    }
+
     .intro-modal-card {
         padding: 28px 20px;
+        max-height: 88vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .intro-modal-header {
@@ -758,8 +811,8 @@ html, body {
     }
 
     .intro-avatar-wrap {
-        width: 56px;
-        height: 56px;
+        width: 52px;
+        height: 52px;
     }
 
     .intro-name {
@@ -767,34 +820,7 @@ html, body {
     }
 
     .intro-role-subtitle {
-        font-size: 0.75rem;
-    }
-
-    .graph-scene {
-        height: 520px;
-        min-height: auto;
-    }
-
-    .node-top {
-        top: calc(50% - 150px);
-    }
-
-    .node-bottom-left {
-        top: calc(50% + 140px);
-        left: calc(50% - 110px);
-    }
-
-    .node-bottom-right {
-        top: calc(50% + 140px);
-        left: calc(50% + 110px);
-    }
-
-    .role-card {
-        padding: 10px 18px;
-    }
-
-    .role-title {
-        font-size: 0.875rem;
+        font-size: 0.775rem;
     }
 
     .startup-nodes-wrap {
@@ -806,5 +832,47 @@ html, body {
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
+    }
+
+    .subgraph-view {
+        padding: 24px 16px 64px;
+    }
+}
+
+@media (max-width: 420px) {
+    .central-core {
+        padding: 7px 18px 7px 8px;
+        gap: 10px;
+    }
+
+    .central-avatar-wrap {
+        width: 44px;
+        height: 44px;
+    }
+
+    .central-name {
+        font-size: 1.55rem;
+    }
+
+    .node-top {
+        top: calc(50% - 130px);
+    }
+
+    .node-bottom-left {
+        top: calc(50% + 125px);
+        left: calc(50% - 75px);
+    }
+
+    .node-bottom-right {
+        top: calc(50% + 125px);
+        left: calc(50% + 75px);
+    }
+
+    .role-card {
+        padding: 8px 12px;
+    }
+
+    .role-title {
+        font-size: 0.75rem;
     }
 }
