@@ -70,6 +70,11 @@ html, body {
     height: 100%;
     pointer-events: none;
     z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.graph-scene.revealed .connections-svg {
     opacity: 1;
 }
 
@@ -163,17 +168,37 @@ html, body {
 }
 
 /* --------------------------------------------------------------------------
-   TRIANGULAR ROLE NODES
+   TRIANGULAR ROLE NODES (HIDDEN INITIALLY, BLOOM ON CLICK)
    -------------------------------------------------------------------------- */
 .role-node {
     position: absolute;
     z-index: 5;
     user-select: none;
     cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.65);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow var(--transition);
+}
+
+.graph-scene.revealed .role-node {
     opacity: 1;
     pointer-events: auto;
-    transform: translate(-50%, -50%);
-    transition: transform var(--transition), box-shadow var(--transition);
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.graph-scene.revealed .node-top {
+    transition-delay: 0.06s;
+}
+
+.graph-scene.revealed .node-bottom-left {
+    transition-delay: 0.14s;
+}
+
+.graph-scene.revealed .node-bottom-right {
+    transition-delay: 0.22s;
 }
 
 .role-card {
@@ -222,8 +247,8 @@ html, body {
     left: 50%;
 }
 
-.node-top:hover {
-    transform: translate(-50%, -54%);
+.graph-scene.revealed .node-top:hover {
+    transform: translate(-50%, -54%) scale(1.02);
 }
 
 /* Bottom Left Vertex (Creative Technologist) */
@@ -232,8 +257,8 @@ html, body {
     left: calc(50% - 230px);
 }
 
-.node-bottom-left:hover {
-    transform: translate(-50%, -54%);
+.graph-scene.revealed .node-bottom-left:hover {
+    transform: translate(-50%, -54%) scale(1.02);
 }
 
 /* Bottom Right Vertex (Dancer) */
@@ -242,8 +267,8 @@ html, body {
     left: calc(50% + 230px);
 }
 
-.node-bottom-right:hover {
-    transform: translate(-50%, -54%);
+.graph-scene.revealed .node-bottom-right:hover {
+    transform: translate(-50%, -54%) scale(1.02);
 }
 
 /* --------------------------------------------------------------------------

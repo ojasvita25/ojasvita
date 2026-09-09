@@ -56,24 +56,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const startY = cY + sinA * centerDist;
 
             // Rectangular boundary intersection for target card
-            const halfW = (targetRect.width / 2) + 6;
-            const halfH = (targetRect.height / 2) + 6;
-            const absCos = Math.abs(cosA);
-            const absSin = Math.abs(sinA);
+            const halfW = (targetRect.width / 2);
+            const halfH = (targetRect.height / 2);
+            const absCos = Math.abs(cosA) || 0.0001;
+            const absSin = Math.abs(sinA) || 0.0001;
             let targetDist;
             if (halfW * absSin <= halfH * absCos) {
                 targetDist = halfW / absCos;
             } else {
                 targetDist = halfH / absSin;
             }
-            const endX = tCenterX - cosA * targetDist;
-            const endY = tCenterY - sinA * targetDist;
+            // 9px clearance outside card so arrow head marker is 100% visible
+            const clearance = 9;
+            const endX = tCenterX - cosA * (targetDist + clearance);
+            const endY = tCenterY - sinA * (targetDist + clearance);
 
             const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-            line.setAttribute('x1', startX);
-            line.setAttribute('y1', startY);
-            line.setAttribute('x2', endX);
-            line.setAttribute('y2', endY);
+            line.setAttribute('x1', startX.toFixed(2));
+            line.setAttribute('y1', startY.toFixed(2));
+            line.setAttribute('x2', endX.toFixed(2));
+            line.setAttribute('y2', endY.toFixed(2));
             line.setAttribute('class', 'graph-edge');
             line.setAttribute('id', `edge-${role.id}`);
             line.setAttribute('marker-end', 'url(#arrow)');
