@@ -76,14 +76,23 @@ document.addEventListener('DOMContentLoaded', () => {
             line.setAttribute('y1', startY.toFixed(2));
             line.setAttribute('x2', endX.toFixed(2));
             line.setAttribute('y2', endY.toFixed(2));
+            line.setAttribute('stroke', '#111111');
+            line.setAttribute('stroke-width', '1.5');
+            line.setAttribute('stroke-dasharray', '5 5');
             line.setAttribute('class', 'graph-edge');
             line.setAttribute('id', `edge-${role.id}`);
             line.setAttribute('marker-end', 'url(#arrow)');
 
             linesGroup.appendChild(line);
 
-            role.el.addEventListener('mouseenter', () => line.classList.add('active'));
-            role.el.addEventListener('mouseleave', () => line.classList.remove('active'));
+            role.el.onmouseenter = () => {
+                line.setAttribute('stroke-width', '2.5');
+                line.setAttribute('stroke-dasharray', '6 4');
+            };
+            role.el.onmouseleave = () => {
+                line.setAttribute('stroke-width', '1.5');
+                line.setAttribute('stroke-dasharray', '5 5');
+            };
         });
     }
 
