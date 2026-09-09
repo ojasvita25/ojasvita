@@ -198,12 +198,26 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
+    function revealGraph() {
+        if (!scene.classList.contains('revealed')) {
+            scene.classList.add('revealed');
+            // Animate line drawings in sync with node transitions
+            const intervals = [50, 150, 300, 500, 700];
+            intervals.forEach((t) => setTimeout(drawMainGraph, t));
+        }
+    }
+
+    function handleCenterClick() {
+        revealGraph();
+        openIntroModal();
+    }
+
     if (centerNode) {
-        centerNode.addEventListener('click', openIntroModal);
+        centerNode.addEventListener('click', handleCenterClick);
         centerNode.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                openIntroModal();
+                handleCenterClick();
             }
         });
     }
