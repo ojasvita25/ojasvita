@@ -196,6 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
         introModalBackdrop.classList.remove('active');
         introModalBackdrop.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        drawMainGraph();
+        setTimeout(drawMainGraph, 60);
+        setTimeout(drawMainGraph, 250);
     }
 
     function revealGraph() {
