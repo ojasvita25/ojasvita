@@ -255,12 +255,32 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial renders
     drawMainGraph();
     drawAllSubGraphs();
+    setTimeout(drawMainGraph, 50);
+    setTimeout(drawMainGraph, 200);
+
+    // Re-draw when all fonts & images finish loading
+    window.addEventListener('load', () => {
+        drawMainGraph();
+        drawAllSubGraphs();
+    });
+
+    if (document.fonts) {
+        document.fonts.ready.then(() => {
+            drawMainGraph();
+            drawAllSubGraphs();
+        });
+    }
 
     // Resize handling
     window.addEventListener('resize', debounce(() => {
         drawMainGraph();
         drawAllSubGraphs();
     }, 100));
+
+    window.addEventListener('orientationchange', () => {
+        setTimeout(drawMainGraph, 100);
+        setTimeout(drawMainGraph, 300);
+    });
 
     // Utility: Debounce
     function debounce(fn, wait) {
