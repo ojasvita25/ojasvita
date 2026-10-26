@@ -6,31 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ojasvita Walgad</title>
     <meta name="title" content="Ojasvita Walgad">
-    <meta name="description"
-        content="Portfolio exploring the works of an ML Engineer &times; Dancer.">
+    <meta name="description" content="Portfolio exploring the works of an ML Engineer &times; Dancer.">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Ojasvita Walgad — ML Engineer &times; Dancer">
-    <meta property="og:description"
-        content="Portfolio exploring the works of an ML Engineer &times; Dancer.">
+    <meta property="og:description" content="Portfolio exploring the works of an ML Engineer &times; Dancer.">
     <meta property="og:image" content="portfolio_images/picture.webp">
 
     <!-- Twitter / X -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Ojasvita Walgad — ML Engineer &times; Dancer">
-    <meta property="twitter:description"
-        content="Portfolio exploring the works of an ML Engineer &times; Dancer.">
+    <meta property="twitter:description" content="Portfolio exploring the works of an ML Engineer &times; Dancer.">
     <meta property="twitter:image" content="portfolio_images/picture.webp">
 
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
 
-    <!-- Google Fonts: Editorial Serif + Modern Clean Sans -->
+    <!-- Google Fonts: Space Mono + JetBrains Mono + Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
@@ -38,13 +35,23 @@
 
 <body>
     <main class="canvas-wrapper">
-        <div class="graph-scene" id="graphScene">
+        <!-- Ambient slide-inspired retro-tech tags -->
+        <div class="canvas-ambient-tag tag-top-left" aria-hidden="true">R E I M A G I N E</div>
+        <div class="canvas-ambient-tag tag-top-right" aria-hidden="true">CODE &times; PLAY</div>
+        <div class="canvas-ambient-tag tag-bottom-left" aria-hidden="true">PHYGITAL</div>
+        <div class="canvas-ambient-tag tag-bottom-right" aria-hidden="true">AI &times; INTERACTIONS</div>
+
+        <div class="graph-scene revealed" id="graphScene">
             <!-- SVG Connecting Lines & Arrows -->
             <svg class="connections-svg" id="connectionsSvg" aria-hidden="true">
                 <defs>
                     <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7"
                         orient="auto">
                         <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#111111" />
+                    </marker>
+                    <marker id="arrowHover" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7"
+                        orient="auto">
+                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2443FF" />
                     </marker>
                 </defs>
                 <g id="linesGroup"></g>
@@ -83,7 +90,7 @@
                         <img src="portfolio_images/picture.webp" alt="Ojasvita Walgad" class="central-avatar">
                     </div>
                     <div class="central-info">
-                        <h1 class="central-name">Ojasvita</h1>
+                        <h1 class="central-name">Ojasvita Walgad</h1>
                         <span class="central-hint" id="centralHint">click to know about me</span>
                     </div>
                 </div>
@@ -141,10 +148,9 @@
         </div>
 
         <!-- Machine Learning Engineer Sub-graph Section -->
-        <section class="subgraph-view" id="mleSection" aria-label="Machine Learning Engineer Startup Experience">
+        <section class="subgraph-view" id="mleSection" aria-label="Machine Learning Engineer Experience">
             <div class="subgraph-nav">
                 <button class="back-link" id="backToHub">&larr; Back</button>
-                <span class="subgraph-crumb">Startups & Applied Engineering</span>
             </div>
 
             <div class="subgraph-scene" id="mleScene">
@@ -162,52 +168,220 @@
                 <!-- Root MLE Node in Sub-graph -->
                 <div class="mle-root-node" id="mleRootNode">
                     <h2 class="root-title">Machine Learning Engineer</h2>
+                    <span class="root-subtitle">Computer Vision &bull; LLM/VLMs &bull; Multimodal AI</span>
                 </div>
 
                 <!-- Startup Sub-nodes Grid / Constellation -->
                 <div class="startup-nodes-wrap" id="startupNodesWrap">
-                    <!-- Startup 1: HedwigAI -->
+                    <!-- Project 1: Unmayaverse (Multimodal AI Project) -->
+                    <div class="startup-node" id="startupUnmayaverse" data-startup="unmayaverse">
+                        <div class="startup-card">
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Multimodal AI &bull; In-Video Search</span>
+                                    <span class="startup-period">2026</span>
+                                </div>
+                                <h3 class="startup-role">Unmayaverse: In-Video Search</h3>
+                                <ul class="startup-bullets">
+                                    <li>
+                                        <strong>Tri-Modal Retrieval Architecture:</strong> Engineered a multimodal
+                                        in-video search system that retrieves scene and keyframe images by fusing
+                                        visual, dialogue, and acoustic signals.
+                                    </li>
+                                    <li>
+                                        <strong>Fine-Tuned Embeddings &amp; Fusion:</strong> Fused rankings from
+                                        cinematography-fine-tuned <strong>SigLIP (LoRA)</strong>, <strong>BGE dense text
+                                            embeddings</strong>, and <strong>CLAP audio embeddings</strong> using
+                                        <strong>Weighted Reciprocal Rank Fusion (RRF)</strong>, reaching <strong>0.54
+                                            MRR</strong> and <strong>68% Recall@5</strong> on a golden evaluation
+                                        benchmark.
+                                    </li>
+                                </ul>
+                                <div class="startup-tags">
+                                    <span>SigLIP (LoRA)</span>
+                                    <span>BGE Dense Embeddings</span>
+                                    <span>CLAP Audio</span>
+                                    <span>Weighted RRF</span>
+                                    <span>0.54 MRR</span>
+                                    <span>68% Recall@5</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://github.com/ojasvita25/unmayaverse" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>GitHub &rarr;</span>
+                                    </a>
+                                    <a href="https://www.instagram.com/unmayaverse/" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>Instagram &rarr;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Startup 2: HedwigAI -->
                     <div class="startup-node" id="startupHedwig" data-startup="hedwig">
                         <div class="startup-card">
                             <div class="card-body">
                                 <div class="startup-header">
-                                    <span class="startup-name">HedwigAI</span>
-                                    <span class="startup-period">2023 &mdash; 2024</span>
+                                    <span class="startup-name">HedwigAI &bull; Early-Stage Startup</span>
+                                    <span class="startup-period">Dec 2023 &mdash; Apr 2024</span>
                                 </div>
-                                <h3 class="startup-role">Gen AI Engineer</h3>
-                                <p class="startup-desc">Custom LoRA and VLMS for real world educational math image
-                                    dataset</p>
+                                <h3 class="startup-role">Generative AI Engineer</h3>
+                                <ul class="startup-bullets">
+                                    <li>
+                                        <strong>VLM Model Adaptation:</strong> Owned model-adaptation effort for
+                                        recognizing handwritten math equations and texts from mobile phone captures,
+                                        where off-the-shelf Texify VLM trained on digital documents failed on real-world
+                                        handwriting; scoped problem, curated dataset, and built the fine-tuning and
+                                        inference pipeline.
+                                    </li>
+                                    <li>
+                                        <strong>Multi-GPU LoRA Pipeline:</strong> Built a multi-GPU LoRA fine-tuning
+                                        pipeline on a curated 10k-sample handwritten dataset (multi-line formulas,
+                                        algorithms) with synthetic noise augmentation (elastic distortion, motion blur)
+                                        and contrast-enhancement inference step, achieving a <strong>46.7% reduction in
+                                            character edit distance</strong> and more than <strong>doubling BLEU (0.21
+                                            &rarr; 0.44)</strong> over the digital-document baseline.
+                                    </li>
+                                </ul>
                                 <div class="startup-tags">
-                                    <span>LoRA</span>
+                                    <span>LoRA / PEFT</span>
+                                    <span>Texify VLM</span>
                                     <span>PyTorch</span>
-                                    <span>Transformers</span>
+                                    <span>Multi-GPU</span>
+                                    <span>Synthetic Augmentation</span>
+                                    <span>46.7% Edit Dist &darr;</span>
+                                    <span>BLEU 2&times; (0.21&rarr;0.44)</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Startup 2: RadiusAI -->
+                    <!-- Startup 3: RadiusAI -->
                     <div class="startup-node" id="startupRadius" data-startup="radius">
                         <div class="startup-card">
                             <div class="card-body">
                                 <div class="startup-header">
-                                    <span class="startup-name">RadiusAI</span>
-                                    <span class="startup-period">2020 &mdash; 2023</span>
+                                    <span class="startup-name">RadiusAI &bull; US-Based Startup</span>
+                                    <span class="startup-period">Feb 2020 &mdash; Oct 2023</span>
                                 </div>
                                 <h3 class="startup-role">Sr. Deep Learning Engineer</h3>
-                                <p class="startup-desc">Deployed real-time edge computer vision & multi-camera tracking
-                                    systems across 700+ retail stores in the US; 3D point cloud calibration.</p>
+                                <ul class="startup-bullets">
+                                    <li>
+                                        <strong>Production Edge Deployment:</strong> Owned model delivery for on-edge
+                                        retail analytics pipelines: took models from training through TensorRT
+                                        optimization to production-readiness, meeting real-time accuracy and latency
+                                        requirements on edge hardware for a deployment spanning <strong>700 US
+                                            commercial stores</strong>.
+                                    </li>
+                                    <li>
+                                        <strong>BPBReID Multi-Camera Tracking:</strong> Developed a body-part-based
+                                        Re-ID model (BPBReID) for multi-camera person tracking: trained with body-part
+                                        pseudo-labels from a pretrained teacher parsing model on a retail dataset,
+                                        implementing visibility-aware part-matching score for consistent person tracking
+                                        across cameras despite occlusion and viewpoint changes (<strong>+30.88
+                                            cross-camera Re-ID mAP</strong>, <strong>+25% tracker F1</strong>).
+                                    </li>
+                                    <li>
+                                        <strong>Lightweight RefineNet Multi-Task:</strong> Developed a multi-task
+                                        network predicting monocular depth and in-store scene segmentation (people,
+                                        counters, shelves, products, POS) in a single pass; delivered as an <strong>FP16
+                                            TensorRT model at ~40 ms/frame</strong> with <strong>~2.8&times; fewer
+                                            FLOPs</strong> and <strong>~1.7&times; fewer parameters</strong> than
+                                        depth-only BTS baseline, powering 3D localization for cashier analytics.
+                                    </li>
+                                    <li>
+                                        <strong>Tracking &amp; Sensor Fusion:</strong> Built a Kalman-filter vehicle
+                                        tracker, a lens rectification model correcting barrel/pincushion distortion, and
+                                        CLAHE contrast enhancement for night-time detection on outdoor store cameras,
+                                        giving stable vehicle tracks that enabled fuel-pump and parking metrics.
+                                    </li>
+                                </ul>
                                 <div class="startup-tags">
-                                    <span>Edge CV</span>
-                                    <span>Tracking</span>
-                                    <span>Point Clouds</span>
-                                    <span>700+ Stores</span>
+                                    <span>TensorRT (FP16)</span>
+                                    <span>700+ US Stores</span>
+                                    <span>BPBReID (+30.88 mAP)</span>
+                                    <span>RefineNet Multi-Task (~40ms)</span>
+                                    <span>3D Person Localization</span>
+                                    <span>Kalman Filter &amp; CLAHE</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Startup 3: Reliance Jio R&D -->
+                    <!-- Project 4: Beyond Origami (AI x Origami) -->
+                    <div class="startup-node" id="startupBeyondOrigami" data-startup="beyondorigami">
+                        <div class="startup-card">
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Generative AI &bull; Hugging Face Space</span>
+                                    <span class="startup-period">2024 &mdash; 2025</span>
+                                </div>
+                                <h3 class="startup-role">Beyond Origami (AI &times; Origami)</h3>
+                                <ul class="startup-bullets">
+                                    <li>
+                                        <strong>Interactive Image-to-Image Pipeline:</strong> Built an interactive web
+                                        application on Hugging Face Spaces with an image-to-image pipeline powered by
+                                        <strong>Stable Diffusion 1.5 (+LoRA)</strong>.
+                                    </li>
+                                    <li>
+                                        <strong>Real-Time LCM Sampling:</strong> Optimized inference using
+                                        <strong>2-step LCM sampling (512 &times; 512)</strong> and hyperparameters tuned
+                                        for creative generation with strict fold-structure preservation.
+                                    </li>
+                                </ul>
+                                <div class="startup-tags">
+                                    <span>Stable Diffusion 1.5</span>
+                                    <span>Custom LoRA</span>
+                                    <span>2-Step LCM Sampling</span>
+                                    <span>Hugging Face Spaces</span>
+                                    <span>Image-to-Image</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://huggingface.co/spaces/ojas25/beyondorigami" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>Hugging Face Space &rarr;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Continental & IIT Madras -->
+                    <div class="startup-node" id="startupIitm" data-startup="iitm">
+                        <div class="startup-card">
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">Continental &times; IIT Madras</span>
+                                    <span class="startup-period">May 2014 &mdash; July 2019</span>
+                                </div>
+                                <h3 class="startup-role">IIT Madras &bull; Dual Degree Research</h3>
+                                <ul class="startup-bullets">
+                                    <li>
+                                        <strong>Dual Degree (BTech + MTech):</strong> BTech in Electrical Engineering
+                                        &amp; MTech in Applied Mechanics from the prestigious Indian Institute of
+                                        Technology Madras (IIT Madras).
+                                    </li>
+                                    <li>
+                                        <strong>Continental Automotive AI:</strong> Collaborative research project with
+                                        Continental simulating human visual search patterns in road video localization
+                                        using attention-based <strong>Deep Reinforcement Learning</strong> and computer
+                                        vision.
+                                    </li>
+                                </ul>
+                                <div class="startup-tags">
+                                    <span>IIT Madras</span>
+                                    <span>Dual Degree (BTech + MTech)</span>
+                                    <span>Continental Research</span>
+                                    <span>Deep RL</span>
+                                    <span>Visual Attention</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Reliance Jio Infocomm -->
                     <div class="startup-node" id="startupJio" data-startup="jio">
                         <div class="startup-card">
                             <div class="card-body">
@@ -216,35 +390,20 @@
                                     <span class="startup-period">2019 &mdash; 2020</span>
                                 </div>
                                 <h3 class="startup-role">Software Developer R&D</h3>
-                                <p class="startup-desc">Engineered 5G telecom core infrastructure modules, protocol
-                                    stack
-                                    optimization, and high-performance system debugging.</p>
+                                <ul class="startup-bullets">
+                                    <li>
+                                        <strong>5G Core Telecom Infrastructure:</strong> Engineered high-throughput 5G
+                                        telecom core infrastructure modules, protocol stack optimization, and
+                                        low-latency system debugging in C++ for next-generation telecommunication
+                                        networks.
+                                    </li>
+                                </ul>
                                 <div class="startup-tags">
                                     <span>5G Core</span>
-                                    <span>Protocols</span>
+                                    <span>Protocol Stacks</span>
                                     <span>C++</span>
-                                    <span>Telecom</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Startup 4: Continental & IIT Madras -->
-                    <div class="startup-node" id="startupIitm" data-startup="iitm">
-                        <div class="startup-card">
-                            <div class="card-body">
-                                <div class="startup-header">
-                                    <span class="startup-name">Continental &times; IIT Madras</span>
-                                    <span class="startup-period">2018 &mdash; 2019</span>
-                                </div>
-                                <h3 class="startup-role">Dual Degree Project</h3>
-                                <p class="startup-desc">Collaborative automotive project: Simulated human visual search
-                                    patterns in road video localization using attention-based reinforcement learning.
-                                </p>
-                                <div class="startup-tags">
-                                    <span>Deep RL</span>
-                                    <span>Traffic Sign Detection</span>
-                                    <span>Computer Vision</span>
+                                    <span>Low Latency</span>
+                                    <span>Telecom Infra</span>
                                 </div>
                             </div>
                         </div>
@@ -266,76 +425,45 @@
                     <defs>
                         <marker id="techArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6"
                             orient="auto">
-                            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#111111" />
+                            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ffffff" />
                         </marker>
                     </defs>
                     <g id="techLinesGroup"></g>
                 </svg>
-
                 <!-- Root Node in Sub-graph -->
                 <div class="mle-root-node" id="techRootNode">
                     <h2 class="root-title">Creative Technologist</h2>
                 </div> <!-- Sub-nodes Grid -->
                 <div class="startup-nodes-wrap" id="techNodesWrap">
-                    <!-- Tech Node 1: Unmaya Film -->
-                    <div class="startup-node" id="techUnmaya">
-                        <div class="startup-card">
-                            <div class="card-media-wrap">
-                                <img src="portfolio_images/unmaya.webp" alt="Unmaya Film" class="card-media"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body">
-                                <div class="startup-header">
-                                    <span class="startup-name">Experimental Dance Film</span>
-                                    <span class="startup-period">2026</span>
-                                </div>
-                                <h3 class="startup-role">Unmaya: AI &times; TFBD (Tribal fusion belly dance)</h3>
-                                <p class="startup-desc">‘Unmaya - A woman, a dance and her body in between’ is an AI
-                                    short film that delves into an Indian woman's body image and mental health as she
-                                    indulges in tribal fusion belly dance, a movement form she has come to love.</p>
-                                <div class="startup-tags">
-                                    <span>Dance AI Film</span>
-                                    <span>Embodied Emotions</span>
-                                    <span>Body Positivity</span>
-                                </div>
-                                <div class="card-actions">
-                                    <a href="https://www.youtube.com/watch?v=h37t5wpGk0E&t=1s" target="_blank"
-                                        rel="noopener noreferrer" class="card-action-btn">
-                                        <span>Watch Film</span>
-                                        <span class="action-arrow">&nearr;</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tech Node 2: AI Futures Fellowship (JengAI) -->
+                    <!-- Project 01: JengAI;2050 (Slide 3) -->
                     <div class="startup-node" id="techJengai">
                         <div class="startup-card">
                             <div class="card-media-wrap">
-                                <img src="portfolio_images/jengai.webp" alt="JengAI Speculative Film" class="card-media"
-                                    loading="lazy">
+                                <img src="portfolio_images/jengai.webp" alt="JengAI;2050 Speculative Film"
+                                    class="card-media" loading="lazy">
                             </div>
                             <div class="card-body">
                                 <div class="startup-header">
-                                    <span class="startup-name">Gooey.AI &times; Jaaga Trust</span>
+                                    <span class="startup-name">code &times; play &times; speculative futures</span>
                                     <span class="startup-period">2025</span>
                                 </div>
-                                <h3 class="startup-role">JengAI: AI Film</h3>
-                                <p class="startup-desc">JengAI is a short film about speculative futures, inspired by
-                                    the games we played as children and the critical questions we ask about technology,
-                                    control, and creativity. It was created during the AI Futures Fellowship and
-                                    screened at the Dhruma Film Festival, Darjeeling 2025.</p>
+                                <h3 class="startup-role">PROJECT 01: JengAI;2050</h3>
+                                <p class="startup-desc">Set in 2050, JengAI is an AI-driven smart city designed for
+                                    perfect balance, where urban life shifts like Jenga blocks and every move is
+                                    calculated to sustain harmony. But when its order begins to collapse, its creator
+                                    Mia must decide her next move. Created under AI Futures Fellowship (Gooey.AI &times;
+                                    Jaaga Trust) and awarded Best AI Film at Dhruma Film Festival 2025.</p>
                                 <div class="startup-tags">
                                     <span>Generative AI Film</span>
-                                    <span>Futures Thinking</span>
-                                    <span>Prompt Engineering</span>
-                                    <span>Dhruma Film Festival</span>
+                                    <span>AI Futures Fellowship</span>
+                                    <span>Best AI Film Award</span>
+                                    <span>Gooey.AI</span>
+                                    <span>Jaaga</span>
                                 </div>
                                 <div class="card-actions">
                                     <a href="https://www.youtube.com/watch?v=VzK2ExOUKwM" target="_blank"
                                         rel="noopener noreferrer" class="card-action-btn">
-                                        <span>Watch Film</span>
+                                        <span>Watch Film on YouTube</span>
                                         <span class="action-arrow">&nearr;</span>
                                     </a>
                                 </div>
@@ -343,46 +471,28 @@
                         </div>
                     </div>
 
-                    <!-- Tech Node 3: Param Science Experience Center -->
-                    <div class="startup-node" id="techParam">
-                        <div class="startup-card">
-                            <div class="card-body">
-                                <div class="startup-header">
-                                    <span class="startup-name">Param Science Experience Center</span>
-                                    <span class="startup-period">2025</span>
-                                </div>
-                                <h3 class="startup-role">Hide Else, AI Seeks</h3>
-                                <p class="startup-desc">An interactive hide-and-seek installation where visitors
-                                    playfully test ways to outsmart and evade AI detection. Built using Pygame,
-                                    computer vision, and physical sensor systems to spark curiosity around machine
-                                    perception.</p>
-                                <div class="startup-tags">
-                                    <span>Interactive Installation</span>
-                                    <span>AI Ethics</span>
-                                    <span>Game Design</span>
-                                    <span>Pygame</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Tech Node 4: Nava Rasa Emotion AI -->
+                    <!-- Project 02: Nava Rasa (Slide 4) -->
                     <div class="startup-node" id="techNavarasa">
                         <div class="startup-card">
+                            <div class="card-media-wrap">
+                                <img src="portfolio_images/demo.gif" alt="Nava Rasa Affective AI Demo"
+                                    class="card-media">
+                            </div>
                             <div class="card-body">
                                 <div class="startup-header">
-                                    <span class="startup-name">Nava Rasa &times; Natyashastra </span>
+                                    <span class="startup-name">code &times; play &times; culture</span>
                                     <span class="startup-period">2024</span>
                                 </div>
-                                <h3 class="startup-role">Nava Rasa: Affective Expression</h3>
-                                <p class="startup-desc">Nava Rasa is an interactive web experience built with Flask that
-                                    explores the 9 classical emotions (Rasas) as mentioned in Indian
-                                    scriptures (Natyashastra) for performing arts. Each Rasa is brought to life through
-                                    visuals and audio, offering users an immersive way to engage with emotions.</p>
+                                <h3 class="startup-role">PROJECT 02: Nava Rasa</h3>
+                                <p class="startup-desc">Nava Rasa is an interactive web experience using facial
+                                    expression recognition to explore the nine classical emotions (Rasas) from the
+                                    Indian Natyashastra. Each Rasa is brought to life through visuals and audio,
+                                    offering users an immersive way to engage with embodied emotions.</p>
                                 <div class="startup-tags">
                                     <span>Nava Rasa</span>
-                                    <span>Affective AI</span>
-                                    <span>Emotion Recognition</span>
+                                    <span>Affective Expression</span>
+                                    <span>Facial Emotion Recognition</span>
+                                    <span>Natyashastra</span>
                                 </div>
                                 <div class="card-actions">
                                     <a href="https://github.com/ojasvita25/nava-rasa-fer" target="_blank"
@@ -395,32 +505,135 @@
                         </div>
                     </div>
 
-                    <!-- Tech Node 5: Origami x AI -->
-                    <div class="startup-node" id="techOrigami">
+                    <!-- Project 03: Shake your Atoms (Slide 5) -->
+                    <div class="startup-node" id="techShakeAtoms">
                         <div class="startup-card">
                             <div class="card-media-wrap">
-                                <img src="portfolio_images/oriAI.webp" alt="Origami x AI" class="card-media"
-                                    loading="lazy">
+                                <img src="portfolio_images/dancetd.webp" alt="Shake your Atoms Gesture Visuals"
+                                    class="card-media" loading="lazy">
                             </div>
                             <div class="card-body">
                                 <div class="startup-header">
-                                    <span class="startup-name">Mixed Media</span>
+                                    <span class="startup-name">code &times; play &times; performance</span>
                                     <span class="startup-period">2024</span>
                                 </div>
-                                <h3 class="startup-role">Origami &times; AI</h3>
-                                <p class="startup-desc">Mixed media practice blending AI (Stable Diffusion) and origami
-                                    fold images.</p>
+                                <h3 class="startup-role">PROJECT 03: Shake your Atoms</h3>
+                                <p class="startup-desc">Inspired by the three physical states of water: &ldquo;ice,
+                                    liquid,
+                                    and gas&rdquo;. Shake Your Atoms is an interactive visual piece that lets users
+                                    disturb a digital atomic structure through hand gestures, exploring how physical
+                                    movement can influence digital matter.</p>
                                 <div class="startup-tags">
-                                    <span>Comfyui</span>
-                                    <span>Origami</span>
-                                    <span>Generative AI</span>
+                                    <span>TouchDesigner</span>
+                                    <span>MediaPipe</span>
+                                    <span>Embodied Interaction</span>
+                                    <span>Interactive Visuals</span>
                                 </div>
                                 <div class="card-actions">
+                                    <a href="https://vimeo.com/1206715541?share=copy&fl=sv&fe=ci" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>Watch Performance Demo</span>
+                                        <span class="action-arrow">&nearr;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 04: Beyond Origami (Slide 6 & 7) -->
+                    <div class="startup-node" id="techOrigami">
+                        <div class="startup-card">
+                            <div class="card-media-wrap">
+                                <img src="portfolio_images/oriAI.webp" alt="Beyond Origami Fold Explorations"
+                                    class="card-media" loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">code &times; play &times; re-imagination</span>
+                                    <span class="startup-period">2024</span>
+                                </div>
+                                <h3 class="startup-role">PROJECT 04: Beyond Origami</h3>
+                                <p class="startup-desc">In Beyond Origami, a simple action like folding paper becomes
+                                    a way to explore the digital world. Users upload pictures of physical origami,
+                                    prompt, and re-imagine folds through generative neural diffusion pipelines.</p>
+                                <div class="startup-tags">
+                                    <span>FastAPI</span>
+                                    <span>ComfyUI</span>
+                                    <span>Stable Diffusion</span>
+                                    <span>Origami &times; AI</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://huggingface.co/spaces/ojas25/beyondorigami" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>Hugging Face Spaces</span>
+                                        <span class="action-arrow">&nearr;</span>
+                                    </a>
                                     <a href="https://www.instagram.com/origamisukidesu/" target="_blank"
                                         rel="noopener noreferrer" class="card-action-btn">
                                         <span>Instagram Archive</span>
                                         <span class="action-arrow">&nearr;</span>
                                     </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Tech Node: Unmaya Film -->
+                    <div class="startup-node" id="techUnmaya">
+                        <div class="startup-card">
+                            <div class="card-media-wrap">
+                                <img src="portfolio_images/unmaya.webp" alt="Unmaya Film" class="card-media"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">code &times; play &times; embodiment</span>
+                                    <span class="startup-period">2026</span>
+                                </div>
+                                <h3 class="startup-role">Unmaya: AI &times; TFBD</h3>
+                                <p class="startup-desc">&lsquo;Unmaya - A woman, a dance and her body in between&rsquo;
+                                    is
+                                    an AI short film that delves into an Indian woman's body image and mental health as
+                                    she indulges in tribal fusion belly dance, a movement form she has come to love.</p>
+                                <div class="startup-tags">
+                                    <span>Dance AI Film</span>
+                                    <span>Embodied Emotions</span>
+                                    <span>Tribal Fusion</span>
+                                </div>
+                                <div class="card-actions">
+                                    <a href="https://www.youtube.com/watch?v=h37t5wpGk0E&t=1s" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>Watch Film</span>
+                                        <span class="action-arrow">&nearr;</span>
+                                    </a>
+                                    <a href="https://www.instagram.com/unmayaverse/" target="_blank"
+                                        rel="noopener noreferrer" class="card-action-btn">
+                                        <span>@unmayaverse</span>
+                                        <span class="action-arrow">&nearr;</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Tech Node: Param Science Experience Center -->
+                    <div class="startup-node" id="techParam">
+                        <div class="startup-card">
+                            <div class="card-body">
+                                <div class="startup-header">
+                                    <span class="startup-name">interactive installation &times; ai ethics</span>
+                                    <span class="startup-period">2025</span>
+                                </div>
+                                <h3 class="startup-role">Hide Else, AI Seeks</h3>
+                                <p class="startup-desc">An interactive hide-and-seek installation where visitors
+                                    playfully test ways to outsmart and evade AI detection. Built using Pygame,
+                                    computer vision, and physical sensor systems for Param Science Experience Center.
+                                </p>
+                                <div class="startup-tags">
+                                    <span>Param Science Center</span>
+                                    <span>Interactive Installation</span>
+                                    <span>AI Ethics</span>
+                                    <span>Pygame</span>
                                 </div>
                             </div>
                         </div>

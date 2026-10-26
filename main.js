@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
             line.setAttribute('x2', endX.toFixed(2));
             line.setAttribute('y2', endY.toFixed(2));
             line.setAttribute('stroke', '#111111');
-            line.setAttribute('stroke-width', '1.5');
-            line.setAttribute('stroke-dasharray', '5 5');
+            line.setAttribute('stroke-width', '2');
+            line.setAttribute('stroke-dasharray', '6 5');
             line.setAttribute('class', 'graph-edge');
             line.setAttribute('id', `edge-${role.id}`);
             line.setAttribute('marker-end', 'url(#arrow)');
@@ -86,12 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
             linesGroup.appendChild(line);
 
             role.el.onmouseenter = () => {
+                line.setAttribute('stroke', '#2443FF');
                 line.setAttribute('stroke-width', '2.5');
-                line.setAttribute('stroke-dasharray', '6 4');
+                line.setAttribute('stroke-dasharray', '8 4');
+                line.setAttribute('marker-end', 'url(#arrowHover)');
             };
             role.el.onmouseleave = () => {
-                line.setAttribute('stroke-width', '1.5');
-                line.setAttribute('stroke-dasharray', '5 5');
+                line.setAttribute('stroke', '#111111');
+                line.setAttribute('stroke-width', '2');
+                line.setAttribute('stroke-dasharray', '6 5');
+                line.setAttribute('marker-end', 'url(#arrow)');
             };
         });
     }
@@ -117,11 +121,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         subLinesGroup.innerHTML = '';
         const cards = subScene.querySelectorAll(cardSelector);
+        // Connect root node to the top row cards so arrows don't cross through cards
+        const topCards = Array.from(cards).slice(0, 2);
 
-        cards.forEach((card) => {
+        topCards.forEach((card) => {
             const cardRect = card.getBoundingClientRect();
             const nX = (cardRect.left + cardRect.width / 2) - sceneRect.left;
-            const nY = (cardRect.top) - sceneRect.top - 6;
+            const nY = (cardRect.top) - sceneRect.top - 8;
 
             const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
             line.setAttribute('x1', rX);
@@ -207,26 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
         introModalBackdrop.classList.remove('active');
         introModalBackdrop.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        
-        // Trigger reveal of the 3 leaves and connecting arrows when user clicks 'explore more' or 'X'
-        revealGraph();
         drawMainGraph();
-        setTimeout(drawMainGraph, 60);
-        setTimeout(drawMainGraph, 200);
-        setTimeout(drawMainGraph, 450);
-        setTimeout(drawMainGraph, 750);
-    }
-
-    function revealGraph() {
-        if (!scene.classList.contains('revealed')) {
-            scene.classList.add('revealed');
-        }
-        const intervals = [30, 80, 160, 300, 500, 750];
-        intervals.forEach((t) => setTimeout(drawMainGraph, t));
     }
 
     function handleCenterClick() {
-        revealGraph();
         openIntroModal();
     }
 
